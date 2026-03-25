@@ -1,0 +1,108 @@
+═══════════════════════════════════════════════════════
+   PROJET AR CONSEIL - WordPress avec Docker
+═══════════════════════════════════════════════════════
+
+📋 INSTRUCTIONS POUR DÉMARRER (Étape par étape)
+═══════════════════════════════════════════════════════
+
+ÉTAPE 1 : Démarrer Docker Desktop
+----------------------------------
+- Lancez l'application "Docker Desktop" sur Windows
+- Attendez que l'icône baleine soit verte en bas à droite
+- Docker doit être en marche !
+
+
+ÉTAPE 2 : Lancer WordPress
+---------------------------
+1. Ouvrez PowerShell ou l'invite de commandes
+2. Naviguez vers ce dossier :
+   cd "C:\Users\Nitro\AR_Conseil\wordpress"
+
+3. Lancez cette commande :
+   docker-compose up -d
+
+4. Attendez 1-2 minutes (téléchargement des images)
+
+
+ÉTAPE 3 : Accéder à votre site
+-------------------------------
+✅ WordPress : http://localhost:8000
+✅ phpMyAdmin : http://localhost:8080
+
+Pour phpMyAdmin :
+- Serveur : db
+- Utilisateur : root
+- Mot de passe : root_2026
+
+
+ÉTAPE 4 : Installer WordPress
+------------------------------
+1. Allez sur http://localhost:8000
+2. Choisissez la langue (Français)
+3. Remplissez le formulaire :
+   - Titre du site : AR CONSEIL
+   - Identifiant : admin (ou votre choix)
+   - Mot de passe : (choisissez un mot de passe fort)
+   - Email : votre email
+4. Cliquez sur "Installer WordPress"
+
+
+═══════════════════════════════════════════════════════
+📁 STRUCTURE DU PROJET
+═══════════════════════════════════════════════════════
+
+docker-compose.yml     → Configuration Docker
+wp-content/           → Vos thèmes et plugins
+  └── themes/         → Ici vous mettrez votre thème enfant
+  └── plugins/        → Vos plugins
+
+
+═══════════════════════════════════════════════════════
+🔧 COMMANDES UTILES
+═══════════════════════════════════════════════════════
+
+Démarrer WordPress :
+→ docker-compose up -d
+
+Arrêter WordPress :
+→ docker-compose down
+
+Voir les logs (si problème) :
+→ docker-compose logs
+
+Redémarrer WordPress :
+→ docker-compose restart
+
+
+═══════════════════════════════════════════════════════
+📊 INFORMATIONS BASE DE DONNÉES
+═══════════════════════════════════════════════════════
+
+Nom de la base : ar_conseil_wp
+Utilisateur : ar_conseil
+Mot de passe : ar_conseil_2026
+Hôte : db
+
+
+═══════════════════════════════════════════════════════
+🎨 PROCHAINES ÉTAPES
+═══════════════════════════════════════════════════════
+
+1. ✅ Installer WordPress (suivez Étape 4)
+2. 🎨 Créer un thème enfant pour votre maquette Figma
+3. 💻 Coder votre design
+4. 🚀 Exporter vers IONOS quand c'est prêt
+
+
+═══════════════════════════════════════════════════════
+❓ BESOIN D'AIDE ?
+═══════════════════════════════════════════════════════
+
+Demandez-moi pour :
+- Créer un thème enfant
+- Exporter vers IONOS
+- Problèmes Docker
+- Tout autre question !
+
+
+Bon développement ! 🚀

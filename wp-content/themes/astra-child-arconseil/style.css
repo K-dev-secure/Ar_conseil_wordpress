@@ -1,0 +1,330 @@
+/*
+Theme Name:   Astra Child - AR CONSEIL
+Theme URI:    https://ar-conseil.fr
+Description:  Thème enfant personnalisé pour AR CONSEIL basé sur Astra
+Author:       AR CONSEIL
+Author URI:   https://ar-conseil.fr
+Template:     astra
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  astra-child-arconseil
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE DES MATIÈRES:
+----------------------------------------------------------------
+1.0 Variables CSS personnalisées
+2.0 Styles généraux
+3.0 Header
+4.0 Navigation
+5.0 Contenu principal
+6.0 Footer
+7.0 Responsive
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Variables CSS personnalisées
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+2.0 Styles généraux
+--------------------------------------------------------------*/
+
+/* Reset des paddings Astra */
+.ast-container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Couleur de fond globale */
+body {
+    background-color: #F9F9F7;
+}
+
+/* Base responsive media behavior */
+img,
+svg,
+video,
+iframe {
+    max-width: 100%;
+}
+
+img,
+svg {
+    height: auto;
+}
+
+.site-content {
+    overflow-x: clip;
+}
+
+/* Force l'empilement vertical des sections */
+.ast-container,
+.site-content {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.ast-container > *,
+.site-content > * {
+    width: 100% !important;
+}
+
+/* Ajoutez vos styles personnalisés ici */
+h2 { color : #1A2A44}
+
+/* ── Bouton uniforme global ── */
+button {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: #D4AF37;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(26, 42, 68, 0.15);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #bfa135;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(26, 42, 68, 0.22);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(26, 42, 68, 0.18);
+}
+
+a button {
+    color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+3.0 Header
+--------------------------------------------------------------*/
+
+/* Styles du header personnalisés */
+
+
+/*--------------------------------------------------------------
+4.0 Navigation
+--------------------------------------------------------------*/
+
+/* Styles de navigation personnalisés */
+
+
+/*--------------------------------------------------------------
+5.0 Contenu principal
+--------------------------------------------------------------*/
+
+/* Styles du contenu personnalisés */
+
+
+/*--------------------------------------------------------------
+6.0 Footer
+--------------------------------------------------------------*/
+
+/* Footer - structure background_footer / colonnes */
+footer .background_footer {
+    background: linear-gradient(135deg, #1A2A44 0%, #0D1522 100%);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 56px 24px 52px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: inherit;
+}
+
+footer .background_footer li,
+footer .background_footer p {
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.1px;
+}
+
+footer .background_footer ul {
+    padding: 0;
+    margin: 0;
+}
+
+footer .background_footer .colonne_second ul {
+    text-align: center;
+}
+
+footer .background_footer h4 {
+    color: #D4AF37;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+}
+
+footer .background_footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+footer .background_footer a:hover {
+    color: #D4AF37;
+}
+
+footer .background_footer .btn_contact {
+    margin: 14px auto 0;
+    text-align: center;
+    display: block;
+    width: fit-content;
+    list-style: none;
+}
+
+footer .background_footer .btn_contact a {
+    text-decoration: none;
+}
+
+footer .background_footer .btn_contact button {
+    font-size: 15px;
+    padding: 10px 22px;
+}
+
+footer .background_footer .colonne_first,
+footer .background_footer .colonne_second,
+footer .background_footer .colonne_third,
+footer .background_footer .colonne_fourth {
+    flex: 1;
+    min-width: 220px;
+    padding: 20px;
+}
+
+footer .background_footer .colonne_first img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 14px;
+}
+
+footer .background_footer .colonne_first p {
+    max-width: 280px;
+    margin: 8px auto 0;
+    font-weight: 500;
+}
+
+footer .background_footer .colonne_second li,
+footer .background_footer .colonne_fourth li {
+    padding: 7px 5px;
+}
+
+footer .background_footer .colonne_third a {
+    font-weight: 500;
+}
+
+footer .background_footer .colonne_third p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .background_footer .colonne_third p img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex: 0 0 40px;
+}
+
+.social_icons ul {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.separation {
+    height: 1px;
+    background-color: #D4AF37;
+    margin: 24px auto;
+    width: 80%;
+}
+
+.mentions_legales {
+    flex: 0 0 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.mentions_legales :hover {
+    color: #D4AF37;
+}
+@media (max-width: 768px) {
+    footer .background_footer {
+        flex-direction: column;
+        gap: 0;
+        padding: 18px 14px;
+    }
+
+    footer .background_footer .colonne_first,
+    footer .background_footer .colonne_second,
+    footer .background_footer .colonne_third,
+    footer .background_footer .colonne_fourth {
+        text-align: center;
+        min-width: 0;
+        width: 100%;
+        padding: 14px 6px;
+    }
+
+    footer .background_footer h4,
+    footer .background_footer li,
+    footer .background_footer p {
+        text-align: center;
+    }
+
+    footer .background_footer h4 {
+        font-size: 20px;
+    }
+
+    footer .background_footer li,
+    footer .background_footer p,
+    footer .background_footer a {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    footer .background_footer .btn_contact {
+        width: fit-content;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+7.0 Responsive
+--------------------------------------------------------------*/
+
+/* Tablette */
+@media screen and (max-width: 768px) {
+    
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    
+}

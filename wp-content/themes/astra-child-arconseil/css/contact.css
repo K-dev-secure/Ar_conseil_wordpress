@@ -1,0 +1,195 @@
+.background_header_contact {
+    position: relative;
+    padding: 250px 0;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.background_header_contact h1,
+.background_header_contact h2 {
+    margin: 50px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.background_header_contact h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.background_header_contact h2 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.second-section-btn {
+    background-color: #E5E7EB;
+    display: flex;
+    gap: 40px;
+    padding: 80px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.second-section-btn a {
+    background-color: #283A77;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.second-section-btn a:hover {
+    background-color: #1A2A44;
+}
+
+.card_mail,
+.card_tel {
+    background-color: #283A77;
+    border: 2px solid #283A77;
+    border-radius: 8px;
+    padding: 30px;
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card_mail:hover,
+.card_tel:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(26, 42, 68, 0.15);
+    border-color: #D4AF37;
+}
+
+.card_mail svg,
+.card_tel svg {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease;
+}
+
+.card_mail:hover svg,
+.card_tel:hover svg {
+    stroke: #D4AF37;
+}
+
+.card_mail p,
+.card_tel p {
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.card_mail:hover p,
+.card_tel:hover p {
+    color: #D4AF37;
+}
+
+.section_horaire {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.section_horaire h2 {
+    color: #283A77;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.section_horaire div {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.horaire_semaine_un {
+    background: linear-gradient(145deg, #263142 0%, #1f2733 55%, #1a2230 100%);
+    color: white;
+    padding: 35px 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.horaire_semaine_deux {
+    background: linear-gradient(145deg, #263142 0%, #1f2733 55%, #1a2230 100%);
+    color: white;
+    padding: 35px 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .second-section-btn {
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 20px;
+        margin-bottom: 50px;
+    }
+
+    .card_mail,
+    .card_tel {
+        width: 100%;
+        max-width: 680px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .background_header_contact {
+        padding: 120px 16px 90px;
+        min-height: 220px;
+    }
+
+    .background_header_contact h1,
+    .background_header_contact h2 {
+        margin: 16px 0;
+    }
+
+    .background_header_contact h1 {
+        font-size: clamp(30px, 8vw, 38px);
+    }
+
+    .background_header_contact h2 {
+        font-size: clamp(16px, 4.3vw, 20px);
+    }
+
+    .section_horaire {
+        padding: 50px 16px;
+    }
+
+    .section_horaire h2 {
+        font-size: clamp(30px, 8vw, 36px);
+    }
+
+    .horaire_semaine_un,
+    .horaire_semaine_deux {
+        padding: 24px 16px;
+    }
+}
+
+

@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # Base de données MySQL
+  db:
+    image: mysql:8.0
+    container_name: ar-conseil-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: ar_conseil_wp
+      MYSQL_USER: ar_conseil
+      MYSQL_PASSWORD: ar_conseil_2026
+      MYSQL_ROOT_PASSWORD: root_2026
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - ar-conseil-network
+
+  # WordPress
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    container_name: ar-conseil-wordpress
+    restart: always
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ar_conseil_wp
+      WORDPRESS_DB_USER: ar_conseil
+      WORDPRESS_DB_PASSWORD: ar_conseil_2026
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    networks:
+      - ar-conseil-network
+
+  # phpMyAdmin (comme dans MAMP)
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin:latest
+    container_name: ar-conseil-phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root_2026
+    networks:
+      - ar-conseil-network
+
+volumes:
+  db_data:
+
+networks:
+  ar-conseil-network:
+    driver: bridge

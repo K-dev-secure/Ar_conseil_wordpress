@@ -1,0 +1,220 @@
+/* Animations au scroll professionnelles */
+
+/* Base pour les éléments animés */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+[data-animate].animate-in {
+    opacity: 1;
+}
+
+/* Fade In Up - Apparition depuis le bas */
+[data-animate="fade-up"] {
+    transform: translateY(30px);
+}
+
+[data-animate="fade-up"].animate-in {
+    transform: translateY(0);
+}
+
+/* Fade In Left - Apparition depuis la gauche */
+[data-animate="fade-left"] {
+    transform: translateX(-40px);
+}
+
+[data-animate="fade-left"].animate-in {
+    transform: translateX(0);
+}
+
+/* Fade In Right - Apparition depuis la droite */
+[data-animate="fade-right"] {
+    transform: translateX(40px);
+}
+
+[data-animate="fade-right"].animate-in {
+    transform: translateX(0);
+}
+
+/* Zoom In - Zoom progressif */
+[data-animate="zoom-in"] {
+    transform: scale(0.96);
+}
+
+[data-animate="zoom-in"].animate-in {
+    transform: scale(1);
+}
+
+/* Délais pour animations en cascade */
+[data-delay="100"] { transition-delay: 0.1s; }
+[data-delay="200"] { transition-delay: 0.2s; }
+[data-delay="300"] { transition-delay: 0.3s; }
+[data-delay="400"] { transition-delay: 0.4s; }
+[data-delay="500"] { transition-delay: 0.5s; }
+[data-delay="600"] { transition-delay: 0.6s; }
+[data-delay="700"] { transition-delay: 0.7s; }
+
+@media (prefers-reduced-motion: reduce) {
+    [data-animate] {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+/* Animations pour les titres */
+.background_header_contact h1,
+.background_header_cabinet h1 {
+    animation: fadeInDown 1s ease-out;
+}
+
+.background_header_contact h2,
+.background_header_cabinet h2 {
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation pour les cartes contact */
+.card_mail,
+.card_tel {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.6s ease forwards;
+}
+
+.card_tel {
+    animation-delay: 0.2s;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation hover pour les cartes */
+.card_mail,
+.card_tel {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card_mail:hover,
+.card_tel:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation pour le formulaire */
+.section_formulaire {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s ease forwards 0.4s;
+}
+
+.form_group {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.form_group:nth-child(1) { animation-delay: 0.6s; }
+.form_group:nth-child(2) { animation-delay: 0.7s; }
+.form_group:nth-child(3) { animation-delay: 0.8s; }
+.form_group:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation pour les boutons */
+.btn,
+input[type="submit"] {
+    transition: all 0.3s ease, background-size 0.6s ease;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    background-size: 0 0;
+}
+
+.btn:hover,
+input[type="submit"]:hover {
+    background-size: 300px 300px;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation pour les inputs */
+input,
+textarea,
+select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #283A77;
+    box-shadow: 0 0 0 3px rgba(40, 58, 119, 0.1);
+    outline: none;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animations pour le contenu Gutenberg/Elementor */
+.gutenberg-content > *,
+.elementor-widget-container > *,
+.elementor-element {
+    animation: fadeInView 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInView {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Décalage des animations pour les éléments Gutenberg */
+.gutenberg-content > *:nth-child(1) { animation-delay: 0.1s; }
+.gutenberg-content > *:nth-child(2) { animation-delay: 0.2s; }
+.gutenberg-content > *:nth-child(3) { animation-delay: 0.3s; }
+.gutenberg-content > *:nth-child(4) { animation-delay: 0.4s; }
+.gutenberg-content > *:nth-child(5) { animation-delay: 0.5s; }
+.gutenberg-content > *:nth-child(n+6) { animation-delay: 0.6s; }
+
+/* Animation parallax subtile pour les sections */
+.elementor-section,
+.wp-block-group {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
