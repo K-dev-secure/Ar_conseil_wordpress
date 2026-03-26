@@ -15,7 +15,7 @@ get_header(); ?>
     <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
         aria-hidden="true">
         <source
-            src="https://arconseils-patrimoine.com/wp-content/uploads/2026/03/456879_River_Tiber_Palace_Of_Justice_3840x2160-2.mp4"
+            src="https://arconseils-patrimoine.com/wp-content/uploads/2026/03/video-accueil.mp4"
             type="video/mp4">
     </video>
     <h1><?php the_title(); ?></h1>
