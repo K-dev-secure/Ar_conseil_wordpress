@@ -5,10 +5,10 @@
 
 get_header(); ?>
 
+<?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
 <style>
 .background_header_services {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( get_the_post_thumbnail_url());
-    ?>);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
 }
 </style>
 
@@ -29,7 +29,7 @@ get_header(); ?>
 
 
     <div class="services_list" id="services_1">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/1.png' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/1.png' ) ); ?>" alt="Private Equity - Investissement en capital">
         <h3>Private Equity</h3>
         <p> Le Private Equity consiste à investir dans le capital de sociétés non cotées en bourse. Plutôt que de miser
             sur la volatilité des marchés financiers classiques, vous soutenez directement la croissance d'entreprises
@@ -43,7 +43,7 @@ get_header(); ?>
 
     <div class="services_list" id="services_2">
         <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/beautiful-architecture-office-business-building-with-glass-window-shape-1.png' ) ); ?>"
-            alt="">
+            alt="PGFI - Groupement Forestier d'Investissement">
         <h3>PGFI</h3>
         <p> Investir dans un GFI, c’est devenir copropriétaire de parcelles de forêts françaises. Au-delà de l’aspect
             écologique et durable, c’est un actif "refuge" déconnecté des marchés financiers. Le rendement provient de
@@ -56,7 +56,7 @@ get_header(); ?>
 
 
     <div class="services_list" id="services_3">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/3.png' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/3.png' ) ); ?>" alt="SCPI - Investissement immobilier pierre-papier">
         <h3>SCPI</h3>
         <p> Souvent appelée "pierre-papier", la SCPI vous permet d'investir dans l'immobilier professionnel (bureaux,
             devenez propriétaire d'une fraction d'un parc immobilier locatif et percevez des revenus réguliers
@@ -70,7 +70,7 @@ get_header(); ?>
 
 
     <div class="services_list" id="services_4">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/4.png' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/4.png' ) ); ?>" alt="Immobilier - Investissement et gestion patrimoniale">
         <h3>Immobilier</h3>
         <p> L'investissement immobilier reste le pilier préféré des Français pour bâtir un patrimoine solide et pérenne.
             Qu'il s'agisse de préparer votre retraite, de protéger votre famille ou de réduire vos impôts (via des
@@ -84,7 +84,7 @@ get_header(); ?>
 
 
     <div class="services_list" id="services_5">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/5.png' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/5.png' ) ); ?>" alt="Assurance vie - Épargne et transmission">
         <h3>Assurance vie</h3>
         <p>L’assurance-vie est souvent qualifiée de "couteau suisse" du patrimoine. C’est un contrat de placement
             flexible qui permet de valoriser un capital tout en bénéficiant d’une fiscalité avantageuse sur les gains
@@ -97,7 +97,7 @@ get_header(); ?>
 
 
     <div class="services_list" id="services_6">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/6.png' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/6.png' ) ); ?>" alt="Contrat de capitalisation - Optimisation fiscale">
         <h3>Contrat de capitalisation</h3>
         <p>Proche de l'assurance-vie dans son fonctionnement, le contrat de capitalisation s'en distingue par sa
             dimension patrimoniale spécifique. Il ne repose pas sur une clause bénéficiaire en cas de décès, mais fait
@@ -111,7 +111,7 @@ get_header(); ?>
 
 
     <div class="services_list" id="services_7">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/7.png' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/7.png' ) ); ?>" alt="Prévoyance - Protection et sécurité financière">
         <h3>Prévoyance </h3>
         <p> La prévoyance est le bouclier de votre patrimoine. Son rôle est de vous protéger, vous et vos proches, face
             aux aléas de la vie : accident, maladie, invalidité ou décès. Contrairement à la mutuelle qui rembourse les
@@ -123,7 +123,7 @@ get_header(); ?>
     </div>
 
     <div class="services_list" id="services_8">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/8.png' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/8.png' ) ); ?>" alt="Compte Titre et PEA - Marchés financiers">
         <h3>Compte Titre & PEA</h3>
         <p> Le Compte-Titres et le PEA sont les portes d'entrée privilégiées vers les marchés financiers mondiaux. Le
             PEA est un outil de capitalisation à la fiscalité très attractive, dédié aux actions européennes, idéal pour

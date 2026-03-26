@@ -4,9 +4,10 @@
  */
 get_header(); ?>
 
+<?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
 <style>
 .background_header_contact {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( get_the_post_thumbnail_url() ); ?>);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
 }
 </style>
 <div class="background_header_contact">
@@ -55,4 +56,4 @@ get_header(); ?>
     </div>
 </div>
 
-</div> <?php get_footer(); ?>
+<?php get_footer(); ?>

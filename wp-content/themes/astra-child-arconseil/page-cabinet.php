@@ -5,10 +5,13 @@
 
 get_header(); ?>
 
+<?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
 <style>
 .background_header_cabinet {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( get_the_post_thumbnail_url());
-    ?>);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
+}
+.section_call_to_action {
+    background-image: linear-gradient(rgba(246, 241, 232, 0.82), rgba(246, 241, 232, 0.82)), url(<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ) ); ?>);
 }
 </style>
 

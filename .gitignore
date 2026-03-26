@@ -18,3 +18,8 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Backups & exports
+wp-content/ai1wm-backups/
+*.wpress
+*.zip

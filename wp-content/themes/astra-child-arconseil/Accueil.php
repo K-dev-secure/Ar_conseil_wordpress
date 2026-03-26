@@ -7,16 +7,15 @@ get_header(); ?>
 
 <style>
 .background_header_accueil {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( get_the_post_thumbnail_url());
-    ?>);
+    background-color: #1A2A44;
 }
 </style>
 
 <div class="background_header_accueil">
     <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
-        poster="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" aria-hidden="true">
+        aria-hidden="true">
         <source
-            src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/456879_River_Tiber_Palace_Of_Justice_3840x2160.mp4' ) ); ?>"
+            src="https://arconseils-patrimoine.com/wp-content/uploads/2026/03/456879_River_Tiber_Palace_Of_Justice_3840x2160-2.mp4"
             type="video/mp4">
     </video>
     <h1><?php the_title(); ?></h1>
