@@ -13,14 +13,14 @@ get_header(); ?>
 
 <div class="background_header_accueil">
     <video class="video_banniere_accueil" 
-       autoplay 
-       muted 
-       loop 
-       playsinline 
-       preload="auto" 
-       poster="https://arconseils-patrimoine.com/wp-content/uploads/2026/03/image-attente.jpg">
-    <source src="https://arconseils-patrimoine.com/wp-content/uploads/2026/03/video-accueil.mp4" type="video/mp4">
-</video>
+           autoplay 
+           muted 
+           loop 
+           playsinline 
+           preload="auto" 
+           poster="https://arconseils-patrimoine.com/wp-content/uploads/2026/03/image-attente.jpg">
+        <source src="https://arconseils-patrimoine.com/wp-content/uploads/2026/04/video-optimisee.mp4" type="video/mp4">
+    </video>
     <h1><?php the_title(); ?></h1>
     <h2><?php the_field('sous_titre_header'); ?></h2>
 </div>
