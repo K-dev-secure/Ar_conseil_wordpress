@@ -1,12 +1,13 @@
 <?php
 /**
+<?php
+/**
  * template name: Mentions legales
  */
 
 get_header();
 ?>
 
-<main>
     <div>
         <h1>Mentions legales</h1>
         <p>Editeur du site</p>
@@ -58,40 +59,8 @@ get_header();
         <p>• Adresse email</p>
         <p>• Numero de telephone</p>
         <p>• Toute information transmise via le formulaire de contact</p>
-        <p>• Donnees de navigation (via cookies - voir politique de cookies)</p>
-        <p>Ces donnees sont uniquement collectees lorsque vous les fournissez volontairement.</p>
-        <p>4. Finalites de la collecte</p>
-        <p>Les donnees collectees servent a :</p>
-        <p>• Repondre a vos demandes envoyees via le formulaire de contact</p>
-        <p>• Vous recontacter dans le cadre d'un echange professionnel</p>
-        <p>• Ameliorer l'experience utilisateur sur le site</p>
-        <p>• Assurer la securite et le bon fonctionnement du site</p>
-        <p>AR Conseils ne vend ni ne loue vos donnees personnelles a des tiers.</p>
-        <p>5. Duree de conservation</p>
-        <p>Les donnees personnelles sont conservees uniquement le temps necessaire pour traiter votre demande, et au
-            maximum :</p>
-        <p>• 3 ans apres le dernier contact pour les prospects</p>
-        <p>• 5 ans pour les obligations legales ou contractuelles si une relation commerciale debute</p>
-        <p>6. Partage des donnees</p>
-        <p>Les donnees peuvent etre transmises uniquement a des prestataires techniques si necessaire (hebergement du
-            site, maintenance), et uniquement dans le cadre du fonctionnement du site.</p>
-        <p>Ces prestataires sont tenus de respecter la confidentialite et la securite des donnees.</p>
-        <p>7. Vos droits</p>
-        <p>Conformement au RGPD, vous disposez des droits suivants :</p>
-        <p>• Droit d'acces a vos donnees</p>
-        <p>• Droit de rectification</p>
-        <p>• Droit a l'effacement</p>
-        <p>• Droit d'opposition</p>
-        <p>• Droit a la limitation du traitement</p>
-        <p>Vous pouvez exercer ces droits en ecrivant a : [email de contact]</p>
-        <p>8. Securite</p>
-        <p>AR Conseils met en oeuvre des mesures techniques et organisationnelles pour proteger les donnees personnelles
-            contre toute perte, acces non autorise ou divulgation.</p>
-        <p>9. Modification de la politique</p>
-        <p>Cette politique de confidentialite peut etre modifiee a tout moment pour garantir sa conformite avec la
-            legislation en vigueur. La derniere mise a jour sera indiquee en bas de page.</p>
-        <p>Derniere mise a jour : [date]</p>
     </div>
-</main>
+
+
 
 <?php get_footer(); ?>

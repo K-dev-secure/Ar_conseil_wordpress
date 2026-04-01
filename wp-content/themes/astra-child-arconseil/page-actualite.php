@@ -1,6 +1,6 @@
 <?php
 /**
- * template name: Actualité
+ * template name: Actualite
  */
 
 get_header(); ?>
