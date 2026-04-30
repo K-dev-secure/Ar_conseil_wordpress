@@ -5,21 +5,19 @@
 
 get_header(); ?>
 
+<?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
 <style>
 .background_header_accueil {
-    background-color: #1A2A44;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
 }
 </style>
 
 <div class="background_header_accueil">
-    <video class="video_banniere_accueil" 
-           autoplay 
-           muted 
-           loop 
-           playsinline 
-           preload="auto" 
-           poster="https://arconseils-patrimoine.com/wp-content/uploads/2026/03/image-attente.jpg">
-        <source src="https://arconseils-patrimoine.com/wp-content/uploads/2026/04/video-optimisee.mp4" type="video/mp4">
+    <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
+        poster="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" aria-hidden="true">
+        <source
+            src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/456879_River_Tiber_Palace_Of_Justice_3840x2160.mp4' ) ); ?>"
+            type="video/mp4">
     </video>
     <h1><?php the_title(); ?></h1>
     <h2><?php the_field('sous_titre_header'); ?></h2>
@@ -41,65 +39,47 @@ get_header(); ?>
     </div>
 </div>
 
-
 <section class="section_services">
     <div class="services_contenu">
         <div class="services_liste">
-            <div class="service_ligne">
-                <div class="service_texte">
-                    <h3>Ingénierie patrimoniale</h3>
-                    <p>Comprendre votre situation, imaginer les meilleures stratégies et avancer à vos côtés pour
-                        construire un avenir patrimonial solide et serein.</p>
+            
+            <?php 
+            $services = [
+                ['titre' => 'Ingénierie patrimoniale', 'desc' => 'Une organisation intelligente de vos biens pour protéger votre famille et réduire vos impôts durablement.'],
+                ['titre' => 'Ingénierie financière', 'desc' => 'Une sélection rigoureuse de placements sur-mesure pour faire grandir votre capital en toute sécurité.'],
+                ['titre' => 'Immobilier', 'desc' => 'Conseil en investissement locatif ou résidence principale pour bâtir un patrimoine tangible et rentable.'],
+                ['titre' => 'Succession', 'desc' => 'Anticiper la transmission de vos actifs pour garantir la paix familiale et optimiser les frais de vos héritiers.'],
+                ['titre' => "Dirigeant d'entreprise", 'desc' => 'Sécuriser votre activité professionnelle et optimiser le passage entre votre patrimoine pro et privé.'],
+            ];
+
+            foreach ($services as $s) : ?>
+            <div class="service_ligne" onclick="this.classList.toggle('active')">
+                <div class="service_header">
+                    <h3><?php echo $s['titre']; ?></h3>
+                    <div class="icon-wrapper">
+                        <span class="plus-icon">+</span>
+                    </div>
                 </div>
-                <div class="service_pastille">Service 1</div>
-            </div>
-            <div class="service_ligne">
-                <div class="service_texte">
-                    <h3>Ingénierie financière</h3>
-                    <p>Observer, sélectionner, ajuster : une gestion attentive pour faire grandir votre capital en toute
-                        confiance.</p>
+                <div class="description-detaillee">
+                    <p><?php echo $s['desc']; ?></p>
                 </div>
-                <div class="service_pastille">Service 2</div>
             </div>
-            <div class="service_ligne">
-                <div class="service_texte">
-                    <h3>Immobilier</h3>
-                    <p>Transformer votre projet immobilier en une décision éclairée, sécurisée et parfaitement adaptée à
-                        votre situation.</p>
-                </div>
-                <div class="service_pastille">Service 3</div>
-            </div>
-            <div class="service_ligne">
-                <div class="service_texte">
-                    <h3>Succession</h3>
-                    <p>Vous épauler avec humanité et clarté pour sécuriser les décisions et préserver les intérêts de
-                        chacun.</p>
-                </div>
-                <div class="service_pastille">Service 4</div>
-            </div>
-            <div class="service_ligne">
-                <div class="service_texte">
-                    <h3>Dirigeant d'entreprise</h3>
-                    <p>Construire des solutions sociales durables qui protègent l'entreprise et ceux qui la font vivre.
-                    </p>
-                </div>
-                <div class="service_pastille">Service 5</div>
-            </div>
+            <?php endforeach; ?>
+
         </div>
+
         <div class="services_media">
             <div class="carte_media">
-                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/serviceARconseils-1.png' ) ); ?>"
-                    alt="Accompagnement AR Conseils">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/serviceARconseils-1.png' ) ); ?>" alt="Conseil AR">
                 <div class="legende_media">
-                    À chaque étape clé de votre parcours patrimonial, notre équipe vous accompagne avec écoute,
-                    expertise et vision stratégique afin de protéger, développer et transmettre votre patrimoine en
-                    toute sérénité.
+                    <span class="gold-line"></span>
+                    <p>À chaque étape clé de votre parcours patrimonial, notre équipe vous accompagne avec écoute, expertise et vision stratégique afin de protéger, développer et transmettre votre patrimoine en toute sérénité.
+.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 
 <div class="section_cta_accueil" style="background-image: linear-gradient(rgba(2, 2, 2, 0.45), rgba(2, 2, 2, 0.45)), url('<?php echo esc_url( get_field('image_section4') ); ?>');">
