@@ -5,12 +5,16 @@
 
 get_header(); ?>
 
+
 <?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
+<!-- Animations premium AR CONSEIL -->
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/accueil-animations.css?v=1.0.0">
 <style>
 .background_header_accueil {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
 }
 </style>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/accueil-animations.js?v=1.0.0" defer></script>
 
 <div class="background_header_accueil">
     <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
@@ -43,6 +47,12 @@ get_header(); ?>
     <div class="services_contenu">
         <div class="services_liste">
             
+            <!-- AJOUT DU TITRE POUR ÉQUILIBRER LE BLOC GAUCHE -->
+            <div class="services_header_top">
+                <span class="sur-titre">Nos Expertises</span>
+                <h2 style="text-align:left; margin-bottom:20px;">Une approche globale sur-mesure</h2>
+            </div>
+            
             <?php 
             $services = [
                 ['titre' => 'Ingénierie patrimoniale', 'desc' => 'Une organisation intelligente de vos biens pour protéger votre famille et réduire vos impôts durablement.'],
@@ -73,8 +83,7 @@ get_header(); ?>
                 <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/serviceARconseils-1.png' ) ); ?>" alt="Conseil AR">
                 <div class="legende_media">
                     <span class="gold-line"></span>
-                    <p>À chaque étape clé de votre parcours patrimonial, notre équipe vous accompagne avec écoute, expertise et vision stratégique afin de protéger, développer et transmettre votre patrimoine en toute sérénité.
-.</p>
+                    <p>À chaque étape clé de votre parcours patrimonial, notre équipe vous accompagne avec écoute, expertise et vision stratégique afin de protéger, développer et transmettre votre patrimoine en toute sérénité.</p>
                 </div>
             </div>
         </div>

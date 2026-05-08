@@ -1,6 +1,6 @@
 /**
  * CSS spécifique pour la page d'accueil - AR CONSEIL
- * Seule la partie SERVICES est passée en design Haute Gamme
+ * Intègre le titre de l'accordéon, le design Haute Gamme et les micro-interactions
  */
 
 .background_header_accueil {
@@ -50,15 +50,18 @@
     }
 }
 
+/* ============================================================
+   SECTION 1 - DYNAMIQUE ET INTERACTIVE (image_f3cf0f.jpg)
+   ============================================================ */
 .first_section_accueil {
-    background-color: #F9FAFB; /* Un blanc très doux qui fait ressortir le bloc blanc interne */
+    background-color: #F9FAFB;
     width: 100%;
-    padding: 80px 0; /* Un peu plus d'espace pour le côté haut de gamme */
+    padding: 100px 0;
 }
 
 .first_section_accueil h2 {
     text-align: center;
-    margin: 0 0 18px;
+    margin-bottom: 60px;
     font-size: clamp(32px, 4vw, 48px);
     line-height: 1.2;
     font-weight: 700;
@@ -73,30 +76,88 @@
     display: flex;
     align-items: center;
     gap: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+    /* Transition fluide pour le soulèvement du bloc */
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+}
+
+/* 1. Effet de brillance (Glint) qui traverse le bloc au survol */
+.background_blanc_accueil::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+    pointer-events: none;
+}
+
+.background_blanc_accueil:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(26, 42, 68, 0.1);
+}
+
+.background_blanc_accueil:hover::after {
+    left: 150%;
 }
 
 .background_blanc_accueil .img_gauche {
     flex: 0 0 45%;
+    overflow: hidden;
 }
 
+/* 2. Effet de zoom et léger décalage de l'image */
 .background_blanc_accueil .img_gauche img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
+    border-radius: 12px 0 0 12px;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.background_blanc_accueil:hover .img_gauche img {
+    transform: scale(1.08) translateX(5px);
 }
 
 .background_blanc_accueil .text {
     flex: 1;
-    padding: 20px;
+    padding: 40px;
+    /* 3. Le texte réagit au mouvement */
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.background_blanc_accueil:hover .text {
+    transform: translateX(-5px);
 }
 
 .text h3 {
     font-size: clamp(24px, 3vw, 32px);
     color: #1A2A44;
     margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+/* 4. Soulignement doré dynamique sous le titre */
+.text h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #D4AF37;
+    transition: width 0.4s ease;
+}
+
+.background_blanc_accueil:hover h3::after {
+    width: 100%;
 }
 
 .text p {
@@ -106,53 +167,58 @@
 }
 
 /* ============================================================
-   SECTION SERVICES - DESIGN HAUTE GAMME & CENTRAGE VERTICAL
+   SECTION SERVICES - DESIGN HAUTE GAMME & ACCORDÉON
    ============================================================ */
 
 .section_services {
-    margin: 70px;
+padding: 100px 0;
+    background-color: #F4F1E9;
+    
 }
 
 .services_contenu {
-    width: 80%;
-    max-width: 1400px;
-    margin: 0 auto;
-    background-color: #F4F1E9; /* Teinte sable prestige */
-    border-radius: 18px;
-    overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    box-shadow: 0 12px 30px rgba(26, 42, 68, 0.18);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    width: 90%;
+    max-width: 1350px;
+    background: #617088; /* Fond sombre pour le luxe */
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
 .services_liste {
-    padding: 40px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* CENTRAGE VERTICAL DU BLOC GAUCHE */
+   padding: 70px;
+    color: #ffffff;
+}
+
+.services_header_top {
+    margin-bottom: 40px;
+}
+
+.sur-titre {
+   color: #D4AF37;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.services_header_top h2 {
+    color: #ffffff !important;
+    text-align: left !important;
+    font-size: 28px !important;
 }
 
 .service_ligne {
     cursor: pointer;
     padding: 25px 0;
-    border-bottom: 1px solid rgba(26, 42, 68, 0.1);
-    transition: all 0.4s ease;
-    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
 }
 
-/* Indicateur doré luxe à gauche */
-.service_ligne::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 0;
-    background: #D4AF37;
-    transition: height 0.4s ease;
-}
 
 .service_ligne.active::before {
     height: 60%;
@@ -168,15 +234,15 @@
     margin: 0;
     font-size: 16px;
     font-weight: 700;
-    letter-spacing: 1.2px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: #1A2A44;
+    color: #ffffff;
 }
 
 .icon-wrapper {
     width: 30px;
     height: 30px;
-    border: 1px solid rgba(26, 42, 68, 0.2);
+    border: 1px solid #D4AF37;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -185,76 +251,60 @@
 }
 
 .plus-icon {
-    font-size: 20px;
-    color: #1A2A44;
-    transition: transform 0.4s ease;
-}
-
-.service_ligne.active h3, 
-.service_ligne.active .plus-icon {
     color: #D4AF37;
+    font-size: 16px;
 }
 
-.service_ligne.active .icon-wrapper {
-    border-color: #D4AF37;
-}
-
-.service_ligne.active .plus-icon {
-    transform: rotate(45deg);
+.service_ligne.active h3 {
+    color: #D4AF37;
 }
 
 .description-detaillee {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
 }
 
 .service_ligne.active .description-detaillee {
-    max-height: 200px;
+    max-height: 150px;
     opacity: 1;
     padding-top: 15px;
 }
 
 .description-detaillee p {
     font-size: 14px;
+    color: rgba(255,255,255,0.7);
     line-height: 1.6;
-    color: #555;
-    font-style: italic;
     margin: 0;
 }
 
 .services_media {
-    padding: 20px;
-    display: flex;
+    position: relative;
 }
 
-.carte_media {
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: #1A2A44;
-    display: grid;
-    width: 100%;
-}
-
-.carte_media img {
+.services_media img {
     width: 100%;
     height: 100%;
-    min-height: 360px;
     object-fit: cover;
     display: block;
 }
 
 .legende_media {
-    padding: 25px;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #ffffff;
-    background: #1A2A44;
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(160deg, #f6f0df 0%, #fdf9f0 100%); /* Fond doré */
+    padding: 30px;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-/* ============================================================ */
+/* ============================================================
+   SECTION CTA
+   ============================================================ */
 
 .section_cta_accueil {
     color: #ffffff;
@@ -268,7 +318,6 @@
     flex-direction: column;
     justify-content: center;
     background-color: #1A2A44;
-    background-repeat: no-repeat, no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -281,11 +330,11 @@
     font-weight: 700;
 }
 
+/* RESPONSIVE */
 @media screen and (max-width: 1024px) {
     .services_contenu {
         grid-template-columns: 1fr;
     }
-
     .services_media {
         padding: 0 20px 20px;
     }
@@ -294,50 +343,21 @@
 @media screen and (max-width: 768px) {
     .background_header_accueil {
         padding: 120px 16px 90px;
-        min-height: 220px;
     }
-
-    .background_header_accueil h1,
-    .background_header_accueil h2 {
-        margin: 16px 0;
-    }
-
-    .background_header_accueil h1 {
-        font-size: clamp(30px, 8vw, 38px);
-    }
-
-    .background_header_accueil h2 {
-        font-size: clamp(16px, 4.3vw, 20px);
-    }
-
     .first_section_accueil {
-        padding: 40px 16px;
+        padding: 60px 16px;
     }
-
-    .section_services {
-        margin: 40px 16px;
-    }
-
     .background_blanc_accueil {
         width: 100%;
         flex-direction: column;
     }
-
     .background_blanc_accueil .img_gauche {
         flex: 0 0 100%;
     }
-
-    .background_blanc_accueil .text {
-        padding: 16px;
+    .background_blanc_accueil .img_gauche img {
+        border-radius: 12px 12px 0 0;
     }
-
-    .services_contenu {
-        width: 100%;
-    }
-
-    .section_cta_accueil {
-        min-height: 320px;
-        margin: 40px 0;
-        padding: 50px 16px;
+    .services_liste {
+        padding: 40px 20px;
     }
 }
