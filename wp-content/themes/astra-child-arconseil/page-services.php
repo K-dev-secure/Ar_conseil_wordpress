@@ -1,9 +1,13 @@
+
 <?php
 /**
  * template name: Services
  */
 
 get_header(); ?>
+<!-- Animations premium AR CONSEIL pour la page Services -->
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/services-animations.css?v=1.0.0">
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/services-animations.js?v=1.0.0" defer></script>
 
 <?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
 <style>
@@ -44,7 +48,7 @@ get_header(); ?>
     <div class="services_list" id="services_2">
         <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/beautiful-architecture-office-business-building-with-glass-window-shape-1.png' ) ); ?>"
             alt="PGFI - Groupement Forestier d'Investissement">
-        <h3>PGFI</h3>
+        <h3>GFI</h3>
         <p> Investir dans un GFI, c’est devenir copropriétaire de parcelles de forêts françaises. Au-delà de l’aspect
             écologique et durable, c’est un actif "refuge" déconnecté des marchés financiers. Le rendement provient de
             la coupe et de la vente du bois, ainsi que de la valorisation du foncier forestier au fil du temps. C’est un

@@ -1,0 +1,27 @@
+/* États initiaux pour reveal haut de gamme page Services */
+.services_list .service_item img {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.services_list .service_item h3,
+.services_list .service_item p {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.services_list .service_item.img-right h3,
+.services_list .service_item.img-right p {
+  transform: translateX(-30px);
+}
+
+/* Barre dorée sous le titre */
+.services_list .service_item h3 .gold-bar {
+  display: block;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37 0%, #fffbe6 100%);
+  margin-top: 8px;
+  transition: width 0.5s cubic-bezier(0.77,0,0.175,1);
+}
+.services_list .service_item:hover h3 .gold-bar {
+  width: 60px;
+}
