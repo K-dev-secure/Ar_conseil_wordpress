@@ -1,6 +1,7 @@
 /**
  * CSS COMPLET - PAGE SERVICES AR CONSEIL
- * Version : Finale avec Micro-interactions Premium
+ * Structure : Grid Desktop / Flex Mobile
+ * Compatibilité : IntersectionObserver (data-animate)
  */
 
 /* --- 1. HEADER (STRICTEMENT INTACT) --- */
@@ -26,109 +27,88 @@
     font-weight: bold;
 }
 
-/* --- 2. STRUCTURE DE LA PAGE --- */
+/* --- 2. SECTION INTRODUCTION (STYLE ÉDITORIAL) --- */
 .second_section_services {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 100px 24px;
+    background-color: #ffffff;
+    text-align: center;
 }
 
-.second_section_services > h2 {
-    text-align: center;
+.second_section_services h2 {
     color: #1A2A44;
-    font-size: clamp(30px, 4vw, 42px);
-    margin-bottom: 30px;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    letter-spacing: -0.5px;
 }
 
-.second_section_services > p {
-    text-align: center;
-    max-width: 850px;
-    margin: 0 auto 100px;
-    line-height: 1.8;
+/* Paragraphes d'introduction */
+.second_section_services p {
     color: #444;
+    line-height: 1.8;
+    margin: 0 auto 30px;
+    max-width: 900px;
 }
 
-/* --- 3. LES CARTES DE SERVICES (STRUCTURE GRID) --- */
+/* Accroche (Premier P après le titre) */
+.second_section_services h2 + p {
+    font-size: 22px;
+    color: #1A2A44;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #D4AF37; /* Ligne dorée simple */
+    display: inline-block;
+}
+
+/* Corps de texte (Second P) */
+.second_section_services p + p {
+    font-size: 17px;
+    max-width: 800px;
+    margin-bottom: 120px;
+    font-weight: 300;
+    border-bottom: none;
+}
+
+/* --- 3. LES CARTES DE SERVICES (GRID DESKTOP) --- */
 .services_list {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    grid-template-rows: auto 1fr;
-    gap: 20px 80px; /* Espace horizontal augmenté pour plus de luxe */
+    grid-template-rows: auto auto;
+    gap: 20px 80px;
     margin-bottom: 150px;
-    align-items: start;
-    transition: all 0.5s ease;
+    align-items: center;
+    text-align: left;
 }
 
-.services_list:nth-of-type(even) {
-    grid-template-columns: 1fr 1fr;
-}
-
-/* --- IMAGE & HOVER IMAGE --- */
+/* Images des services */
 .services_list img {
     grid-column: 2;
     grid-row: 1 / span 2;
     width: 100%;
     height: 550px;
     object-fit: cover;
-    border-radius: 4px; /* Coins plus carrés = plus institutionnel */
+    border-radius: 4px;
     box-shadow: 20px 20px 0px -5px #F4F1E9;
-    /* Transition très lente pour le luxe */
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
-.services_list:nth-of-type(even) img {
-    grid-column: 1;
-    box-shadow: -20px 20px 0px -5px #F4F1E9;
-}
-
-/* Effet au survol du bloc complet */
-.services_list:hover img {
-    transform: scale(1.03) translateY(-10px);
-    box-shadow: 15px 30px 40px rgba(26, 42, 68, 0.15);
-}
-
-.services_list:nth-of-type(even):hover img {
-    box-shadow: -15px 30px 40px rgba(26, 42, 68, 0.15);
-}
-
-/* --- TITRE H3 & ANIMATION BARRE --- */
+/* Titres des services */
 .services_list h3 {
     grid-column: 1;
     grid-row: 1;
     font-size: 34px;
     color: #1A2A44;
     margin: 0;
-    padding-bottom: 15px;
-    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #D4AF37;
     align-self: end;
-    transition: transform 0.5s ease;
 }
 
-/* Barre dorée animée */
-.services_list h3::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px; /* Taille initiale */
-    height: 3px;
-    background: #D4AF37;
-    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.services_list:hover h3::after {
-    width: 100%; /* La barre s'allonge au survol */
-}
-
-.services_list:hover h3 {
-    transform: translateX(10px); /* Le titre glisse légèrement */
-}
-
-.services_list:nth-of-type(even) h3 {
-    grid-column: 2;
-}
-
-/* --- PARAGRAPHE P --- */
+/* Paragraphes des services */
 .services_list p {
     grid-column: 1;
     grid-row: 2;
@@ -136,50 +116,81 @@
     line-height: 1.9;
     color: #333;
     margin: 0;
-    font-weight: 300;
-    transition: transform 0.5s ease 0.1s; /* Petit délai */
+    max-width: 100%;
+    align-self: start;
 }
 
-.services_list:hover p {
-    transform: translateX(10px); /* Le texte suit le titre */
+/* Alternance des blocs (Z-Pattern) */
+.services_list:nth-of-type(even) img { 
+    grid-column: 1; 
+    box-shadow: -20px 20px 0px -5px #F4F1E9; 
 }
 
-.services_list:nth-of-type(even) p {
-    grid-column: 2;
+.services_list:nth-of-type(even) h3, 
+.services_list:nth-of-type(even) p { 
+    grid-column: 2; 
 }
 
-/* --- 4. RESPONSIVE --- */
+/* Effet Hover (Professionnel) */
+.services_list:hover img {
+    transform: translateY(-10px);
+    box-shadow: 15px 30px 40px rgba(26, 42, 68, 0.1);
+}
+
+/* --- 4. ÉTATS D'ANIMATION (Lien avec JS) --- */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+[data-animate].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 5. RESPONSIVE MOBILE (FLEX COLUMN CENTRÉ) --- */
 @media (max-width: 1024px) {
+    .second_section_services { 
+        padding: 60px 20px; 
+    }
+
+    .second_section_services h2 { 
+        font-size: 32px; 
+    }
+    
+    .second_section_services h2 + p { 
+        font-size: 19px; 
+        display: block; 
+    }
+
     .services_list {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre les éléments flex (img, h3, p) */
+        text-align: center;   /* Centre le texte à l'intérieur des éléments */
         gap: 30px;
-        text-align: center;
         margin-bottom: 80px;
     }
 
     .services_list img {
-        grid-column: 1 !important;
-        grid-row: 1;
+        width: 100%;
         height: 350px;
-        box-shadow: none !important;
+        box-shadow: 10px 10px 0px -2px #F4F1E9;
+        grid-column: auto; /* Sécurité pour annuler le grid desktop */
     }
 
     .services_list h3 {
-        grid-column: 1 !important;
-        grid-row: 2;
-        justify-self: center;
-        transform: none !important;
-    }
-
-    .services_list h3::after {
-        left: 50%;
-        transform: translateX(-50%);
+        font-size: 28px;
+        margin: 0 auto 15px; /* Le "auto" sur les côtés force le centrage du bloc h3 */
+        display: inline-block; 
+        padding-bottom: 5px;
+        grid-column: auto; /* Sécurité */
     }
 
     .services_list p {
-        grid-column: 1 !important;
-        grid-row: 3;
-        transform: none !important;
+        font-size: 16px;
+        padding: 0 10px;
+        grid-column: auto; /* Sécurité */
     }
 }
