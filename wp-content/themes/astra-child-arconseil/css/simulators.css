@@ -1,0 +1,230 @@
+/**
+ * SIMULATEURS FINANCIERS - PAGE SERVICES AR CONSEIL
+ * Design : Éditorial de Luxe / Institutionnel Sombre
+ * Responsive : Desktop & Mobile (Flex Column 100% mobile)
+ * Pas de !important - Cascade naturelle respectée
+ */
+
+/* --- 1. CONTENEUR PRINCIPAL DU SIMULATEUR --- */
+.simulator-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+}
+.simulator-container {
+  background: linear-gradient(135deg, #0f1419 0%, #1a2a44 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  padding: 50px 40px;
+  margin: 80px 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.2);
+  
+  /* État initial pour IntersectionObserver */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Appliquer l'animation quand la classe .animate-in est ajoutée */
+.simulator-container.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 2. TITRE ET ACCROCHE DU SIMULATEUR --- */
+.simulator-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  letter-spacing: -0.5px;
+}
+
+.simulator-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  border-left: 3px solid #D4AF37;
+  padding-left: 15px;
+}
+
+/* --- 3. FORMULAIRE DE SAISIE (FLEX COLUMN RESPONSIVE) --- */
+.simulator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+/* Groupe de champ (label + input) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.form-group input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* Conteneur à 2 colonnes pour desktop (versement initial, durée, etc.) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* --- 4. BOUTON CALCULER --- */
+.simulator-button {
+  background: linear-gradient(135deg, #D4AF37 0%, #e6c548 100%);
+  border: none;
+  border-radius: 4px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f1419;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+}
+
+.simulator-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
+}
+
+.simulator-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+}
+
+/* --- 5. BLOC RÉSULTAT --- */
+.simulator-result {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 4px;
+  padding: 30px;
+  margin-top: 40px;
+  text-align: center;
+  
+  /* Caché par défaut, affiché au JS */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+}
+
+/* Affiché au clic sur "Calculer" */
+.simulator-result.show {
+  max-height: 200px;
+  opacity: 1;
+  padding: 30px;
+}
+
+.result-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.result-value {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #D4AF37, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.result-info {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* --- 6. RESPONSIVE MOBILE (MAX-WIDTH: 1024px) --- */
+@media (max-width: 1024px) {
+  .simulator-container {
+    padding: 40px 24px;
+    margin: 60px 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 6px;
+  }
+
+  .simulator-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .simulator-subtitle {
+    font-size: 15px;
+    margin-bottom: 30px;
+    padding-left: 12px;
+    border-left-width: 2px;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .simulator-button {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .result-value {
+    font-size: 36px;
+  }
+
+  .simulator-result {
+    padding: 20px;
+  }
+
+  .simulator-result.show {
+    padding: 20px;
+  }
+}

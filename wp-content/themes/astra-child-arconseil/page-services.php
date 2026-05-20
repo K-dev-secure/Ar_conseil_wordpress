@@ -8,6 +8,9 @@ get_header(); ?>
 <!-- Animations premium AR CONSEIL pour la page Services -->
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/services-animations.css?v=1.0.0">
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/services-animations.js?v=1.0.0" defer></script>
+<!-- Simulateurs financiers (GFI & Assurance-Vie) -->
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/simulators.css?v=1.0.0">
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/simulators.js?v=1.0.0" defer></script>
 
 <?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
 <style>
@@ -57,7 +60,35 @@ get_header(); ?>
             durablement, alliant protection de la biodiversité et stabilité patrimoniale pour les générations futures.
         </p>
     </div>
+    <!-- Simulateur GFI -->
+    <div class="simulator-container" id="simulator-gfi" data-animate>
+        <h2 class="simulator-title">Simulateur GFI</h2>
+        <p class="simulator-subtitle">Calculez la valorisation de votre investissement en Groupement Forestier. Saisissez vos paramètres pour obtenir une projection personnalisée.</p>
+        
+        <form class="simulator-form" id="gfi-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gfi-capital">Versement Initial (€)</label>
+                    <input type="number" id="gfi-capital" placeholder="Ex: 50000" min="0" step="1000">
+                </div>
+                <div class="form-group">
+                    <label for="gfi-duration">Durée (années)</label>
+                    <input type="number" id="gfi-duration" placeholder="Ex: 10" min="1" step="1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gfi-rate">Rendement annuel estimé (%)</label>
+                <input type="number" id="gfi-rate" placeholder="Ex: 3.5" min="0" step="0.1">
+            </div>
+            <button type="button" class="simulator-button" id="gfi-button">Calculer la Projection</button>
+        </form>
 
+        <div class="simulator-result" id="gfi-result">
+            <span class="result-label">Capital estimé après</span>
+            <p class="result-value">—</p>
+            <p class="result-info"></p>
+        </div>
+    </div>
 
     <div class="services_list" id="services_3">
         <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/3.png' ) ); ?>" alt="SCPI - Investissement immobilier pierre-papier">
@@ -99,6 +130,41 @@ get_header(); ?>
             pair.</p>
     </div>
 
+    <!-- Simulateur Assurance-Vie -->
+    <div class="simulator-container" id="simulator-life-insurance" data-animate>
+        <h2 class="simulator-title">Simulateur Assurance-Vie</h2>
+        <p class="simulator-subtitle">Projettez la croissance de votre contrat en combinant un capital initial et des versements mensuels réguliers. Ajustez les paramètres à votre situation.</p>
+        
+        <form class="simulator-form" id="life-insurance-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="life-capital">Capital Initial (€)</label>
+                    <input type="number" id="life-capital" placeholder="Ex: 30000" min="0" step="1000">
+                </div>
+                <div class="form-group">
+                    <label for="life-monthly">Versement Mensuel (€)</label>
+                    <input type="number" id="life-monthly" placeholder="Ex: 500" min="0" step="50">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="life-duration">Durée (années)</label>
+                    <input type="number" id="life-duration" placeholder="Ex: 20" min="1" step="1">
+                </div>
+                <div class="form-group">
+                    <label for="life-rate">Rendement annuel estimé (%)</label>
+                    <input type="number" id="life-rate" placeholder="Ex: 2.5" min="0" step="0.1">
+                </div>
+            </div>
+            <button type="button" class="simulator-button" id="life-insurance-button">Calculer la Projection</button>
+        </form>
+
+        <div class="simulator-result" id="life-insurance-result">
+            <span class="result-label">Capital estimé après</span>
+            <p class="result-value">—</p>
+            <p class="result-info"></p>
+        </div>
+    </div>
 
     <div class="services_list" id="services_6">
         <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/6.png' ) ); ?>" alt="Contrat de capitalisation - Optimisation fiscale">
@@ -114,17 +180,7 @@ get_header(); ?>
 
 
 
-    <div class="services_list" id="services_7">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/7.png' ) ); ?>" alt="Prévoyance - Protection et sécurité financière">
-        <h3>Prévoyance </h3>
-        <p> La prévoyance est le bouclier de votre patrimoine. Son rôle est de vous protéger, vous et vos proches, face
-            aux aléas de la vie : accident, maladie, invalidité ou décès. Contrairement à la mutuelle qui rembourse les
-            soins, la prévoyance garantit le maintien de votre niveau de vie par le versement d'indemnités journalières
-            ou d'un capital. Pour un dirigeant ou un indépendant, c’est une protection indispensable. Air Conseil
-            réalise un audit de vos garanties actuelles et vous propose des solutions adaptées pour combler les failles
-            de votre protection sociale, afin que votre projet de vie ne soit jamais mis en péril par un imprévu de
-            santé.</p>
-    </div>
+   
 
     <div class="services_list" id="services_8">
         <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/8.png' ) ); ?>" alt="Compte Titre et PEA - Marchés financiers">
@@ -138,7 +194,17 @@ get_header(); ?>
         </p>
     </div>
 
-
+ <div class="services_list" id="services_7">
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/7.png' ) ); ?>" alt="Prévoyance - Protection et sécurité financière">
+        <h3>Prévoyance </h3>
+        <p> La prévoyance est le bouclier de votre patrimoine. Son rôle est de vous protéger, vous et vos proches, face
+            aux aléas de la vie : accident, maladie, invalidité ou décès. Contrairement à la mutuelle qui rembourse les
+            soins, la prévoyance garantit le maintien de votre niveau de vie par le versement d'indemnités journalières
+            ou d'un capital. Pour un dirigeant ou un indépendant, c’est une protection indispensable. Air Conseil
+            réalise un audit de vos garanties actuelles et vous propose des solutions adaptées pour combler les failles
+            de votre protection sociale, afin que votre projet de vie ne soit jamais mis en péril par un imprévu de
+            santé.</p>
+    </div>
 
 
     <div class="gutenberg-content">
