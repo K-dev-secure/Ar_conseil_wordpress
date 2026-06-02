@@ -23,10 +23,18 @@ get_header(); ?>
             src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/456879_River_Tiber_Palace_Of_Justice_3840x2160.mp4' ) ); ?>"
             type="video/mp4">
     </video>
-    <h1><?php the_title(); ?></h1>
-    <h2><?php the_field('sous_titre_header'); ?></h2>
+    
+    <div class="header_accueil_content">
+        <span class="header_tagline">Gestion de Patrimoine · Lyon . Macon</span>
+        <h1><?php the_title(); ?></h1>
+        <h2><?php the_field('sous_titre_header'); ?></h2>
+        
+        <div class="header_buttons">
+            <a href="#" class="btn_rdv">Prendre rendez-vous</a>
+            <a href="#" class="btn_services">Nos services</a>
+        </div>
+    </div>
 </div>
-
 
 
 <div class="first_section_accueil">
@@ -41,16 +49,15 @@ get_header(); ?>
             <p><?php the_field('paragraphe_section_2_accueil'); ?></p>
         </div>
     </div>
-</div>
+</div>>
 
 <section class="section_services">
     <div class="services_contenu">
+        
         <div class="services_liste">
-            
-            <!-- AJOUT DU TITRE POUR ÉQUILIBRER LE BLOC GAUCHE -->
             <div class="services_header_top">
                 <span class="sur-titre">Nos Expertises</span>
-                <h2 style="text-align:left; margin-bottom:20px;">Une approche globale sur-mesure</h2>
+                <h2>Une approche globale sur-mesure</h2>
             </div>
             
             <?php 
@@ -67,7 +74,7 @@ get_header(); ?>
                 <div class="service_header">
                     <h3><?php echo $s['titre']; ?></h3>
                     <div class="icon-wrapper">
-                        <span class="plus-icon">+</span>
+                        <span class="plus-icon"></span>
                     </div>
                 </div>
                 <div class="description-detaillee">
@@ -75,30 +82,40 @@ get_header(); ?>
                 </div>
             </div>
             <?php endforeach; ?>
-
         </div>
 
         <div class="services_media">
             <div class="carte_media">
                 <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/serviceARconseils-1.png' ) ); ?>" alt="Conseil AR">
                 <div class="legende_media">
-                    <span class="gold-line"></span>
                     <p>À chaque étape clé de votre parcours patrimonial, notre équipe vous accompagne avec écoute, expertise et vision stratégique afin de protéger, développer et transmettre votre patrimoine en toute sérénité.</p>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
 
-<div class="section_cta_accueil" style="background-image: linear-gradient(rgba(2, 2, 2, 0.45), rgba(2, 2, 2, 0.45)), url('<?php echo esc_url( get_field('image_section4') ); ?>');">
-    <h2><?php the_field('titre_section_4'); ?></h2>
-    <p><?php the_field('paragraphe_section_4'); ?></p>
-    <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>"> <button>Prendre
-            rendez-vous</button></a>
-</div>
-
-
+<section class="section_cta_accueil" style="--bg-image: url('<?php the_field('image_section4'); ?>');">
+    <div class="cta_accueil_inner">
+        
+        <span class="cta_sur_titre">Votre avenir patrimonial</span>
+        
+        <h2><?php 
+            echo get_field('titre_section_4') ? esc_html(get_field('titre_section_4')) : "Bâtissons ensemble les fondations de votre réussite"; 
+        ?></h2>
+        
+        <p><?php 
+            echo get_field('paragraphe_section_4') ? esc_html(get_field('paragraphe_section_4')) : "Prenez de la hauteur sur vos actifs. Rencontrez un conseiller privé AR Conseil pour une étude d'organisation ou de transmission sur-mesure et confidentielle."; 
+        ?></p>
+        
+        <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>" class="cta_premium_btn">
+            <span>Prendre rendez-vous</span>
+        </a>
+        
+    </div>
+</section>
 <div class="gutenberg-content">
     <?php
         if ( have_posts() ) : 

@@ -1,143 +1,295 @@
 /**
- * CSS COMPLET - PAGE SERVICES AR CONSEIL
- * Structure : Grid Desktop / Flex Mobile
- * Compatibilité : IntersectionObserver (data-animate)
+ * ==========================================================================
+ * CSS COMPLET - PAGE SERVICES AR CONSEIL (VERSION FINALE - HEADER AGRANDI)
+ * ==========================================================================
  */
 
-/* --- 1. HEADER (STRICTEMENT INTACT) --- */
+/* --- 1. HEADER HERO (POLICE AGRANDIE & REHAUSSÉE) --- */
 .background_header_services {
     position: relative;
-    padding: 250px 0;
-    min-height: 300px;
+    padding: 260px 0; /* Légèrement plus haut pour donner de l'importance au bloc */
+    min-height: 350px;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
 }
 
-.background_header_services h1,
-.background_header_services h2 {
-    margin: 50px;
-    color: #ffffff;
-    text-align: center;
+.header_services_content {
     position: relative;
     z-index: 2;
-}
-
-.background_header_services h1 {
-    font-size: 48px;
-    font-weight: bold;
-}
-
-/* --- 2. SECTION INTRODUCTION (STYLE ÉDITORIAL) --- */
-.second_section_services {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 24px;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.second_section_services h2 {
-    color: #1A2A44;
-    font-size: 46px;
-    font-weight: 700;
-    line-height: 1.2;
-    max-width: 900px;
-    margin: 0 auto 50px;
-    letter-spacing: -0.5px;
-}
-
-/* Paragraphes d'introduction */
-.second_section_services p {
-    color: #444;
-    line-height: 1.8;
-    margin: 0 auto 30px;
-    max-width: 900px;
-}
-
-/* Accroche (Premier P après le titre) */
-.second_section_services h2 + p {
-    font-size: 22px;
-    color: #1A2A44;
-    margin-bottom: 40px;
-    padding-bottom: 25px;
-    border-bottom: 2px solid #D4AF37; /* Ligne dorée simple */
-    display: inline-block;
-}
-
-/* Corps de texte (Second P) */
-.second_section_services p + p {
-    font-size: 17px;
-    max-width: 800px;
-    margin-bottom: 120px;
-    font-weight: 300;
-    border-bottom: none;
-}
-
-/* --- 3. LES CARTES DE SERVICES (GRID DESKTOP) --- */
-.services_list {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: auto auto;
-    gap: 20px 80px;
-    margin-bottom: 150px;
-    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    margin-left: max(40px, 5%);
+    margin-right: auto;
+    padding: 0 20px;
     text-align: left;
 }
 
-/* Images des services */
-.services_list img {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    width: 100%;
-    height: 550px;
-    object-fit: cover;
-    border-radius: 4px;
-    box-shadow: 20px 20px 0px -5px #F4F1E9;
-    transition: transform 0.6s ease, box-shadow 0.6s ease;
+.header_services_content .header_tagline {
+    color: #D4AF37;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Titres des services */
-.services_list h3 {
-    grid-column: 1;
-    grid-row: 1;
-    font-size: 34px;
+.background_header_services h1 {
+    color: #ffffff;
+    font-size: clamp(42px, 6vw, 72px); /* Police considérablement agrandie pour un effet impactant */
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 25px 0;
+    max-width: 900px;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* Améliore le contraste sur l'image de fond */
+}
+
+.background_header_services h2 {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: clamp(17px, 2vw, 22px); /* Légèrement agrandi pour équilibrer avec le titre */
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 750px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+/* --- 2. PREMIÈRE SECTION : NOTRE ENGAGEMENT --- */
+.premiere_section_service {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 140px 40px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.engagement_text_col {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.engagement_tagline {
+    color: #D4AF37;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.engagement_text_col h2 {
     color: #1A2A44;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 600;
+    line-height: 1.25;
+    text-transform: uppercase;
+    margin: 0 0 35px 0;
+}
+
+.engagement_paragraphs p {
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 0 25px 0;
+}
+
+.engagement_paragraphs .mot_dore {
+    color: #D4AF37;
+    font-weight: 600;
+}
+
+.engagement_img_col {
+    position: relative;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.engagement_img_col img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+}
+
+.img_frame_decorator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #D4AF37;
+    z-index: 1;
+}
+
+
+/* --- 3. DEUXIÈME SECTION : GRILLE PARTIE SERVICE (STYLE FIGMA STRICT) --- */
+.partie_service {
+    background-color: #F4F4F4;
+    padding: 120px 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.partie_service_header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.partie_service_header h2 {
+    color: #1A2A44;
+    font-size: 34px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 15px 0;
+}
+
+.divider_gold {
+    width: 50px;
+    height: 2px;
+    background-color: #D4AF37;
+    margin: 0 auto;
+}
+
+.services_grid_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service_card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.service_card:hover {
+    box-shadow: 0 20px 40px rgba(26, 42, 68, 0.08);
+}
+
+.card_img_wrapper {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.card_img_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service_card:hover .card_img_wrapper img {
+    transform: scale(1.03);
+}
+
+.card_content_wrapper {
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.card_title_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.card_title_row::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background-color: #D4AF37;
+}
+
+.card_title_row h3 {
+    color: #1A2A44;
+    font-size: 21px;
+    font-weight: 500;
     margin: 0;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #D4AF37;
-    align-self: end;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Paragraphes des services */
-.services_list p {
-    grid-column: 1;
-    grid-row: 2;
-    font-size: 17px;
-    line-height: 1.9;
-    color: #333;
+.service_number {
+    color: #D4AF37;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.card_content_wrapper p {
+    color: #9A9A9A;
+    font-size: 14.5px;
+    line-height: 1.7;
+    font-weight: 300;
     margin: 0;
-    max-width: 100%;
-    align-self: start;
 }
 
-/* Alternance des blocs (Z-Pattern) */
-.services_list:nth-of-type(even) img { 
-    grid-column: 1; 
-    box-shadow: -20px 20px 0px -5px #F4F1E9; 
+
+/* --- 4. TROISIÈME SECTION : LES SIMULATEURS --- */
+.section_simulateurs_services {
+    background-color: #ffffff;
+    padding: 100px 40px;
 }
 
-.services_list:nth-of-type(even) h3, 
-.services_list:nth-of-type(even) p { 
-    grid-column: 2; 
+.simulators_flex_layout {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* Effet Hover (Professionnel) */
-.services_list:hover img {
-    transform: translateY(-10px);
-    box-shadow: 15px 30px 40px rgba(26, 42, 68, 0.1);
+.section_simulateurs_services .simulator-container {
+    flex: 1;
+    min-width: 450px;
+    max-width: 600px;
+    margin: 0;
+    border-radius: 0;
 }
 
-/* --- 4. ÉTATS D'ANIMATION (Lien avec JS) --- */
+.section_simulateurs_services .simulator-button {
+    border-radius: 0;
+}
+
+
+/* --- 5. EFFETS D'ANIMATION --- */
 [data-animate] {
     opacity: 0;
     transform: translateY(30px);
@@ -149,48 +301,61 @@
     transform: translateY(0);
 }
 
-/* --- 5. RESPONSIVE MOBILE (FLEX COLUMN CENTRÉ) --- */
-@media (max-width: 1024px) {
-    .second_section_services { 
-        padding: 60px 20px; 
+
+/* --- 6. RESPONSIVE DESIGN --- */
+@media screen and (max-width: 1100px) {
+    .services_grid_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .background_header_services {
+        padding: 180px 0;
     }
 
-    .second_section_services h2 { 
-        font-size: 32px; 
+    .background_header_services h1 {
+        font-size: 38px; /* Taille mobile adaptée */
+    }
+
+    .premiere_section_service {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 60px 24px;
     }
     
-    .second_section_services h2 + p { 
-        font-size: 19px; 
-        display: block; 
+    .engagement_img_col {
+        order: -1;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .engagement_img_col img {
+        height: 380px;
+    }
+    
+    .img_frame_decorator {
+        width: 120px;
+        height: 120px;
     }
 
-    .services_list {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centre les éléments flex (img, h3, p) */
-        text-align: center;   /* Centre le texte à l'intérieur des éléments */
-        gap: 30px;
-        margin-bottom: 80px;
+    .services_grid_container {
+        grid-template-columns: 1fr;
     }
-
-    .services_list img {
-        width: 100%;
-        height: 350px;
-        box-shadow: 10px 10px 0px -2px #F4F1E9;
-        grid-column: auto; /* Sécurité pour annuler le grid desktop */
+    
+    .partie_service {
+        padding: 70px 20px;
     }
-
-    .services_list h3 {
-        font-size: 28px;
-        margin: 0 auto 15px; /* Le "auto" sur les côtés force le centrage du bloc h3 */
-        display: inline-block; 
-        padding-bottom: 5px;
-        grid-column: auto; /* Sécurité */
+    
+    .card_content_wrapper {
+        padding: 30px 20px;
     }
-
-    .services_list p {
-        font-size: 16px;
-        padding: 0 10px;
-        grid-column: auto; /* Sécurité */
+    
+    .section_simulateurs_services {
+        padding: 60px 20px;
+    }
+    
+    .section_simulateurs_services .simulator-container {
+        min-width: 100%;
     }
 }

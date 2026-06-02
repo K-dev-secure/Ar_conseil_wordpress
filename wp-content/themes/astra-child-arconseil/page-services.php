@@ -1,221 +1,251 @@
-
 <?php
 /**
  * template name: Services
+ * Animations : utilise premium-animations.js (chargé globalement)
+ * Classes CSS : .fade-up, .fade-left, .fade-right appliquées au HTML
  */
 
 get_header(); ?>
-<!-- Animations premium AR CONSEIL pour la page Services -->
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/services-animations.css?v=1.0.0">
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/services-animations.js?v=1.0.0" defer></script>
-<!-- Simulateurs financiers (GFI & Assurance-Vie) -->
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/simulators.css?v=1.0.0">
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/simulators.js?v=1.0.0" defer></script>
 
-<?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
-<style>
-.background_header_services {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
-}
-</style>
+<?php 
+// Sélection de l'image de l'en-tête (Image mise en avant ou image par défaut libre de droits sélectionnée)
+$header_bg = get_the_post_thumbnail_url() ?: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1920&auto=format&fit=crop'; 
+?>
 
-<div class="background_header_services">
-    <h1> Nos services</h1>
-    <h2>Conseil patrimonial et accompagnement immobilier à Lyon</h2>
+<div class="background_header_services" style="background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.6)), url(<?php echo esc_url( $header_bg ); ?>);">
+    <div class="header_services_content">
+        <span class="header_tagline">Expertise & Accompagnement</span>
+        <h1><?php the_title(); ?></h1>
+        <h2>Conseil patrimonial et accompagnement immobilier à Lyon</h2>
+    </div>
 </div>
 
-<div class="second_section_services">
-    <h2>Des services sur mesure pour sécuriser et développer votre patrimoine</h2>
-    <p>Basé à Lyon, AR Conseils accompagne particuliers, propriétaires et investisseurs dans leurs projets patrimoniaux
-        et immobiliers. Notre approche repose sur une expertise terrain, une analyse précise de votre situation et un
-        accompagnement personnalisé à chaque étape : stratégie, décisions et suivi.</p>
-    <p>Que vous souhaitiez optimiser votre patrimoine immobilier, préparer un investissement locatif, structurer vos
-        démarches ou gagner en visibilité sur vos choix, nous proposons des solutions claires, fiables et adaptées à vos
-        objectifs. Notre priorité : vous offrir un conseil transparent, réactif et orienté résultats.</p>
-
-
-
-    <div class="services_list" id="services_1">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/1.png' ) ); ?>" alt="Private Equity - Investissement en capital">
-        <h3>Private Equity</h3>
-        <p> Le Private Equity consiste à investir dans le capital de sociétés non cotées en bourse. Plutôt que de miser
-            sur la volatilité des marchés financiers classiques, vous soutenez directement la croissance d'entreprises
-            réelles (PME, startups ou entreprises en développement). C’est un levier puissant pour diversifier votre
-            patrimoine tout en participant à l'économie réelle. Chez AR Conseils, nous sélectionnons des fonds de
-            capital-investissement rigoureux qui offrent des perspectives de rendement supérieures sur le long terme, en
-            contrepartie d'une période de blocage des fonds. C'est la solution idéale pour les investisseurs avertis
-            cherchant à décorréler leurs actifs des fluctuations boursières quotidiennes.</p>
-    </div>
-
-
-    <div class="services_list" id="services_2">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/beautiful-architecture-office-business-building-with-glass-window-shape-1.png' ) ); ?>"
-            alt="PGFI - Groupement Forestier d'Investissement">
-        <h3>GFI</h3>
-        <p> Investir dans un GFI, c’est devenir copropriétaire de parcelles de forêts françaises. Au-delà de l’aspect
-            écologique et durable, c’est un actif "refuge" déconnecté des marchés financiers. Le rendement provient de
-            la coupe et de la vente du bois, ainsi que de la valorisation du foncier forestier au fil du temps. C’est un
-            outil d'exception pour la transmission de patrimoine, car il bénéficie d'un cadre fiscal très avantageux
-            (abattement sur les droits de succession). AR Conseils vous accompagne dans le choix de groupements gérés
-            durablement, alliant protection de la biodiversité et stabilité patrimoniale pour les générations futures.
-        </p>
-    </div>
-    <!-- Simulateur GFI -->
-    <div class="simulator-container" id="simulator-gfi" data-animate>
-        <h2 class="simulator-title">Simulateur GFI</h2>
-        <p class="simulator-subtitle">Calculez la valorisation de votre investissement en Groupement Forestier. Saisissez vos paramètres pour obtenir une projection personnalisée.</p>
+<!-- PREMIÈRE SECTION : NOTRE ENGAGEMENT (image_8d4313.jpg) -->
+<div class="premiere_section_service fade-up">
+    <div class="engagement_text_col fade-left">
+        <span class="engagement_tagline">Notre engagement</span>
+        <h2>Une expertise reconnue au service de tous</h2>
         
-        <form class="simulator-form" id="gfi-form">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="gfi-capital">Versement Initial (€)</label>
-                    <input type="number" id="gfi-capital" placeholder="Ex: 50000" min="0" step="1000">
-                </div>
-                <div class="form-group">
-                    <label for="gfi-duration">Durée (années)</label>
-                    <input type="number" id="gfi-duration" placeholder="Ex: 10" min="1" step="1">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="gfi-rate">Rendement annuel estimé (%)</label>
-                <input type="number" id="gfi-rate" placeholder="Ex: 3.5" min="0" step="0.1">
-            </div>
-            <button type="button" class="simulator-button" id="gfi-button">Calculer la Projection</button>
-        </form>
-
-        <div class="simulator-result" id="gfi-result">
-            <span class="result-label">Capital estimé après</span>
-            <p class="result-value">—</p>
-            <p class="result-info"></p>
+        <div class="engagement_paragraphs">
+            <p>Implantés à Lyon, AR Conseils met à votre disposition son équipe expérimentée depuis plus de 5 ans. Nous vous proposons un panel de solutions de placement, d'investissement et de couverture.</p>
+            <p><span class="mot_dore">Notre engagement</span> : offrir des solutions personnalisées, transparentes et durables, fondées sur la confiance et un accompagnement irréprochable à chaque étape.</p>
         </div>
     </div>
+    
+    <div class="engagement_img_col fade-right">
+        <div class="img_frame_decorator"></div>
+        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/beautiful-architecture-office-business-building-with-glass-window-shape-1.png' ) ); ?>" alt="Une expertise reconnue au service de tous - AR Conseil">
+    </div>
+</div>
 
-    <div class="services_list" id="services_3">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/3.png' ) ); ?>" alt="SCPI - Investissement immobilier pierre-papier">
-        <h3>SCPI</h3>
-        <p> Souvent appelée "pierre-papier", la SCPI vous permet d'investir dans l'immobilier professionnel (bureaux,
-            devenez propriétaire d'une fraction d'un parc immobilier locatif et percevez des revenus réguliers
-            (dividendes) correspondant aux loyers collectés. C'est une solution de choix pour générer des revenus
-            complémentaires avec un ticket d'entrée accessible. Air Conseil analyse pour vous le marché afin de
-            sélectionner les SCPI les plus résilientes, offrant le meilleur équilibre entre taux de distribution et
-            qualité du parc immobilier.</p>
+<!-- DEUXIÈME SECTION : GRILLE DES SERVICES (image_8d4698.png) -->
+<div class="partie_service">
+    <div class="partie_service_header">
+        <h2>Nos Services</h2>
+        <div class="divider_gold"></div>
     </div>
 
-
-
-
-    <div class="services_list" id="services_4">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/4.png' ) ); ?>" alt="Immobilier - Investissement et gestion patrimoniale">
-        <h3>Immobilier</h3>
-        <p> L'investissement immobilier reste le pilier préféré des Français pour bâtir un patrimoine solide et pérenne.
-            Qu'il s'agisse de préparer votre retraite, de protéger votre famille ou de réduire vos impôts (via des
-            dispositifs comme la loi Pinel, le LMNP ou le Malraux), l'immobilier direct permet d'utiliser l'effet de
-            levier du crédit bancaire. Air Conseil vous guide à chaque étape : de la stratégie d'acquisition à la
-            sélection du dispositif fiscal le plus adapté à votre situation. Nous transformons la pierre en un outil
-            financier optimisé, en veillant à l'emplacement géographique et à la qualité intrinsèque du bien pour
-            garantir sa valorisation future..</p>
-    </div>
-
-
-
-    <div class="services_list" id="services_5">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/5.png' ) ); ?>" alt="Assurance vie - Épargne et transmission">
-        <h3>Assurance vie</h3>
-        <p>L’assurance-vie est souvent qualifiée de "couteau suisse" du patrimoine. C’est un contrat de placement
-            flexible qui permet de valoriser un capital tout en bénéficiant d’une fiscalité avantageuse sur les gains
-            après huit ans. Elle offre une liberté totale : vous pouvez investir sur des fonds sécurisés (fonds euros)
-            ou sur des supports plus dynamiques (unités de compte). Chez Air Conseil, nous concevons des allocations
-            sur-mesure au sein de votre contrat pour répondre à vos objectifs, qu'il s'agisse d'épargne disponible, de
-            valorisation de capital ou de transmission optimisée à vos bénéficiaires grâce à un cadre successoral hors
-            pair.</p>
-    </div>
-
-    <!-- Simulateur Assurance-Vie -->
-    <div class="simulator-container" id="simulator-life-insurance" data-animate>
-        <h2 class="simulator-title">Simulateur Assurance-Vie</h2>
-        <p class="simulator-subtitle">Projettez la croissance de votre contrat en combinant un capital initial et des versements mensuels réguliers. Ajustez les paramètres à votre situation.</p>
+    <div class="services_grid_container">
         
-        <form class="simulator-form" id="life-insurance-form">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="life-capital">Capital Initial (€)</label>
-                    <input type="number" id="life-capital" placeholder="Ex: 30000" min="0" step="1000">
-                </div>
-                <div class="form-group">
-                    <label for="life-monthly">Versement Mensuel (€)</label>
-                    <input type="number" id="life-monthly" placeholder="Ex: 500" min="0" step="50">
-                </div>
+        <!-- Service 1 -->
+        <div class="service_card fade-up">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/1.png' ) ); ?>" alt="Private Equity">
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="life-duration">Durée (années)</label>
-                    <input type="number" id="life-duration" placeholder="Ex: 20" min="1" step="1">
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>Private Equity</h3>
+                    <span class="service_number">01</span>
                 </div>
-                <div class="form-group">
-                    <label for="life-rate">Rendement annuel estimé (%)</label>
-                    <input type="number" id="life-rate" placeholder="Ex: 2.5" min="0" step="0.1">
-                </div>
+                <p>Le Private Equity consiste à investir dans le capital de sociétés non cotées en bourse. Soutenez directement la croissance d'entreprises réelles (PME, startups) pour décorréler vos actifs des fluctuations boursières.</p>
             </div>
-            <button type="button" class="simulator-button" id="life-insurance-button">Calculer la Projection</button>
-        </form>
+        </div>
 
-        <div class="simulator-result" id="life-insurance-result">
-            <span class="result-label">Capital estimé après</span>
-            <p class="result-value">—</p>
-            <p class="result-info"></p>
+        <!-- Service 2 -->
+        <div class="service_card fade-up" style="--animation-delay: 0.1s;">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/beautiful-architecture-office-business-building-with-glass-window-shape-1.png' ) ); ?>" alt="GFI">
+            </div>
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>GFI</h3>
+                    <span class="service_number">02</span>
+                </div>
+                <p>Devenez copropriétaire de parcelles de forêts françaises. Un actif refuge écoresponsable, totalement déconnecté des marchés financiers, offrant un cadre fiscal d'exception pour la transmission de votre patrimoine.</p>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service_card fade-up" style="--animation-delay: 0.2s;">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/3.png' ) ); ?>" alt="SCPI">
+            </div>
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>SCPI</h3>
+                    <span class="service_number">03</span>
+                </div>
+                <p>Investissez dans la "pierre-papier" et accédez à l'immobilier professionnel dès quelques milliers d'euros. Percevez des revenus complémentaires réguliers sans aucun souci de gestion locative directe.</p>
+            </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service_card fade-up" style="--animation-delay: 0.3s;">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/4.png' ) ); ?>" alt="Immobilier">
+            </div>
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>Immobilier</h3>
+                    <span class="service_number">04</span>
+                </div>
+                <p>Pilier fondamental de l'épargne. Optimisez votre fiscalité (LMNP, Malraux, Pinel) et utilisez l'effet de levier du crédit bancaire pour vous bâtir un patrimoine immobilier pérenne et sécuriser votre retraite.</p>
+            </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service_card fade-up" style="--animation-delay: 0.4s;">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/5.png' ) ); ?>" alt="Assurance vie">
+            </div>
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>Assurance vie</h3>
+                    <span class="service_number">05</span>
+                </div>
+                <p>Le véritable couteau suisse fiscal. Valorisez votre capital sur des supports sécurisés ou dynamiques tout en préparant une transmission de capitaux entièrement optimisée et hors droits de succession.</p>
+            </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service_card fade-up" style="--animation-delay: 0.5s;">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/6.png' ) ); ?>" alt="Contrat de capitalisation">
+            </div>
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>Contrat de capitalisation</h3>
+                    <span class="service_number">06</span>
+                </div>
+                <p>Idéal pour les personnes morales ou les stratégies familiales avancées. Permet de loger de l'épargne avec la fiscalité de l'assurance-vie, tout en offrant la possibilité d'effectuer des donations de son vivant.</p>
+            </div>
+        </div>
+
+        <!-- Service 7 -->
+        <div class="service_card fade-up" style="--animation-delay: 0.6s;">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/8.png' ) ); ?>" alt="Compte Titre & PEA">
+            </div>
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>Compte Titre & PEA</h3>
+                    <span class="service_number">07</span>
+                </div>
+                <p>Prenez place sur les marchés financiers mondiaux. Profitez du cadre fiscal ultra-privilégié du PEA pour vos actions européennes ou de la flexibilité totale du Compte-Titres pour vos investissements internationaux.</p>
+            </div>
+        </div>
+
+        <!-- Service 8 -->
+        <div class="service_card fade-up" style="--animation-delay: 0.7s;">
+            <div class="card_img_wrapper">
+                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/7.png' ) ); ?>" alt="Prévoyance">
+            </div>
+            <div class="card_content_wrapper">
+                <div class="card_title_row">
+                    <h3>Prévoyance</h3>
+                    <span class="service_number">08</span>
+                </div>
+                <p>Le bouclier indispensable de votre vie privée et professionnelle. Protégez votre foyer et maintenez vos revenus face aux aléas de la vie (incapacité de travail, invalidité, accident ou coup dur).</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- TROISIÈME SECTION : LES SIMULATEURS EN FIN DE PAGE -->
+<div class="section_simulateurs_services fade-up">
+    <div class="partie_service_header">
+        <h2>Outils de simulation</h2>
+        <div class="divider_gold"></div>
+    </div>
+
+    <div class="simulators_flex_layout">
+        <!-- Simulateur GFI -->
+        <div class="simulator-container fade-left" id="simulator-gfi" data-animate>
+            <h2 class="simulator-title">Simulateur GFI</h2>
+            <p class="simulator-subtitle">Calculez la valorisation de votre investissement en Groupement Forestier. Saisissez vos paramètres pour obtenir une projection.</p>
+            
+            <form class="simulator-form" id="gfi-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gfi-capital">Versement Initial (€)</label>
+                        <input type="number" id="gfi-capital" placeholder="Ex: 50000" min="0" step="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="gfi-duration">Durée (années)</label>
+                        <input type="number" id="gfi-duration" placeholder="Ex: 10" min="1" step="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gfi-rate">Rendement annuel estimé (%)</label>
+                    <input type="number" id="gfi-rate" placeholder="Ex: 3.5" min="0" step="0.1">
+                </div>
+                <button type="button" class="simulator-button" id="gfi-button">Calculer la Projection</button>
+            </form>
+
+            <div class="simulator-result" id="gfi-result">
+                <span class="result-label">Capital estimé après</span>
+                <p class="result-value">—</p>
+                <p class="result-info"></p>
+            </div>
+        </div>
+
+        <!-- Simulateur Assurance-Vie -->
+        <div class="simulator-container fade-right" id="simulator-life-insurance" data-animate>
+            <h2 class="simulator-title">Simulateur Assurance-Vie</h2>
+            <p class="simulator-subtitle">Projetez la croissance de votre contrat en combinant un capital initial et des versements mensuels réguliers.</p>
+            
+            <form class="simulator-form" id="life-insurance-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="life-capital">Capital Initial (€)</label>
+                        <input type="number" id="life-capital" placeholder="Ex: 30000" min="0" step="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="life-monthly">Versement Mensuel (€)</label>
+                        <input type="number" id="life-monthly" placeholder="Ex: 500" min="0" step="50">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="life-duration">Durée (années)</label>
+                        <input type="number" id="life-duration" placeholder="Ex: 20" min="1" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="life-rate">Rendement annuel estimé (%)</label>
+                        <input type="number" id="life-rate" placeholder="Ex: 2.5" min="0" step="0.1">
+                    </div>
+                </div>
+                <button type="button" class="simulator-button" id="life-insurance-button">Calculer la Projection</button>
+            </form>
+
+            <div class="simulator-result" id="life-insurance-result">
+                <span class="result-label">Capital estimé après</span>
+                <p class="result-value">—</p>
+                <p class="result-info"></p>
+            </div>
         </div>
     </div>
+</div>
 
-    <div class="services_list" id="services_6">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/6.png' ) ); ?>" alt="Contrat de capitalisation - Optimisation fiscale">
-        <h3>Contrat de capitalisation</h3>
-        <p>Proche de l'assurance-vie dans son fonctionnement, le contrat de capitalisation s'en distingue par sa
-            dimension patrimoniale spécifique. Il ne repose pas sur une clause bénéficiaire en cas de décès, mais fait
-            partie intégrante de votre succession. Son grand avantage réside dans la possibilité de le transmettre par
-            donation de son vivant tout en conservant l'antériorité fiscale du contrat. C’est un outil puissant pour les
-            personnes morales (sociétés) ou les particuliers souhaitant optimiser leur stratégie de transmission. Air
-            Conseil vous aide à intégrer ce contrat dans une vision globale pour protéger et transmettre votre capital
-            avec une efficacité fiscale maximale.</p>
-    </div>
-
-
-
-   
-
-    <div class="services_list" id="services_8">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/8.png' ) ); ?>" alt="Compte Titre et PEA - Marchés financiers">
-        <h3>Compte Titre & PEA</h3>
-        <p> Le Compte-Titres et le PEA sont les portes d'entrée privilégiées vers les marchés financiers mondiaux. Le
-            PEA est un outil de capitalisation à la fiscalité très attractive, dédié aux actions européennes, idéal pour
-            construire une épargne de long terme. Le Compte-Titres, plus flexible, permet d'investir sans plafond sur
-            tous types de valeurs (actions internationales, obligations, ETF). Air Conseil vous apporte son expertise en
-            gestion d'actifs pour définir une stratégie d'investissement cohérente avec votre profil de risque, en
-            naviguant entre opportunités de croissance et gestion de la volatilité pour faire fructifier votre capital.
-        </p>
-    </div>
-
- <div class="services_list" id="services_7">
-        <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/03/7.png' ) ); ?>" alt="Prévoyance - Protection et sécurité financière">
-        <h3>Prévoyance </h3>
-        <p> La prévoyance est le bouclier de votre patrimoine. Son rôle est de vous protéger, vous et vos proches, face
-            aux aléas de la vie : accident, maladie, invalidité ou décès. Contrairement à la mutuelle qui rembourse les
-            soins, la prévoyance garantit le maintien de votre niveau de vie par le versement d'indemnités journalières
-            ou d'un capital. Pour un dirigeant ou un indépendant, c’est une protection indispensable. Air Conseil
-            réalise un audit de vos garanties actuelles et vous propose des solutions adaptées pour combler les failles
-            de votre protection sociale, afin que votre projet de vie ne soit jamais mis en péril par un imprévu de
-            santé.</p>
-    </div>
-
-
-    <div class="gutenberg-content">
-        <?php
+<div class="gutenberg-content">
+    <?php
     if ( have_posts() ) : 
         while ( have_posts() ) : the_post(); 
             the_content(); 
         endwhile; 
     endif; 
     ?>
-    </div>
 </div>
 
-<?php  get_footer(); ?>
+<?php get_footer(); ?>

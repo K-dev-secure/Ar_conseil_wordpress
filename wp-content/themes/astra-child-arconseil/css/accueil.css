@@ -1,46 +1,152 @@
 /**
  * CSS spécifique pour la page d'accueil - AR CONSEIL
- * Intègre le titre de l'accordéon, le design Haute Gamme et les micro-interactions
  */
 
 .background_header_accueil {
     position: relative;
-    padding: 250px 0;
-    min-height: 300px;
-    background-size: cover;
-    background-position: center;
+    padding: 240px 0 120px 0; /* Écritures descendues vers le bas gauche */
+    min-height: 650px;
+    display: flex;
+    align-items: flex-end; 
     overflow: hidden;
     width: 100%;
+    box-sizing: border-box;
+    
+    /* Sécurités anti-répétition pour l'image poster en arrière-plan */
+    background-color: #111111; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Interdit la répétition de l'image sur les grands écrans */
 }
 
 .video_banniere_accueil {
     position: absolute;
-    inset: 0;
+    top: 50%;
+    left: 50%;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transform: translate(-50%, -50%); 
     z-index: 0;
-    filter: brightness(0.5);
+    filter: brightness(0.45); 
 }
 
-.background_header_accueil h1,
-.background_header_accueil h2 {
-    margin: 50px;
-    color: #ffffff;
-    text-align: center;
+/* Conteneur de texte aligné proprement à gauche */
+.header_accueil_content {
     position: relative;
     z-index: 2;
+    max-width: 1400px; 
+    width: 100%;
+    margin-left: max(40px, 5%); 
+    margin-right: auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
-.background_header_accueil h1 {
-    font-size: 48px;
-    font-weight: bold;
+/* Le petit tag au-dessus du titre */
+.header_tagline {
+    color: #D4AF37;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: block;
 }
 
+/* Titre Principal sans !important */
+.background_header_accueil .header_accueil_content h1 {
+    color: #ffffff;
+    font-size: clamp(34px, 4.8vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    max-width: 800px; 
+}
+
+/* Sous-titre / Description */
+.background_header_accueil .header_accueil_content h2 {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0 0 35px 0;
+    max-width: 680px;
+}
+
+/* --- BLOC BOUTONS D'ACTION (Hover d'origine rétabli) --- */
+.header_buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Bouton Plein Doré */
+.btn_rdv {
+    background-color: #D4AF37;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn_rdv:hover {
+    border: 1px solid #D4AF37;
+     background-color: transparent;
+    color: #D4AF37;
+    border-color: #D4AF37;
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Bouton Transparent / Bordure */
+.btn_services {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn_services:hover {
+    background-color: #ffffff;
+    color: #1A2A44;
+    border-color: #ffffff;
+}
+
+/* --- RESPONSIVE --- */
 @media screen and (max-width: 768px) {
-    .video_banniere_accueil {
-        object-position: 60% center;
+    .background_header_accueil {
+        padding: 160px 0 80px 0;
+        align-items: center; 
+    }
+    
+    .header_accueil_content {
+        margin-left: 0;
+        padding: 0 24px;
+    }
+    
+    .header_buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn_rdv, .btn_services {
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -50,237 +156,282 @@
     }
 }
 
-/* ============================================================
-   SECTION 1 - DYNAMIQUE ET INTERACTIVE (image_f3cf0f.jpg)
-   ============================================================ */
 .first_section_accueil {
-    background-color: #F9FAFB;
+    background-color: #FDFBF7;
     width: 100%;
-    padding: 100px 0;
+    padding: 140px 0;
+    box-sizing: border-box;
 }
 
 .first_section_accueil h2 {
     text-align: center;
-    margin-bottom: 60px;
-    font-size: clamp(32px, 4vw, 48px);
+    margin-bottom: 80px;
+    font-size: clamp(34px, 4vw, 46px);
     line-height: 1.2;
     font-weight: 700;
+    letter-spacing: -0.5px;
     color: #1A2A44;
 }
 
 .background_blanc_accueil {
-    background-color: #ffffff;
-    width: 80%;
+    background-color: transparent;
+    width: 85%;
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+    gap: 8%;
+    box-shadow: none;
+    overflow: visible;
     position: relative;
-    /* Transition fluide pour le soulèvement du bloc */
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* 1. Effet de brillance (Glint) qui traverse le bloc au survol */
 .background_blanc_accueil::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg);
-    transition: 0.7s;
-    pointer-events: none;
+    display: none;
 }
 
 .background_blanc_accueil:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(26, 42, 68, 0.1);
-}
-
-.background_blanc_accueil:hover::after {
-    left: 150%;
+    transform: translateY(-4px);
 }
 
 .background_blanc_accueil .img_gauche {
     flex: 0 0 45%;
     overflow: hidden;
+    position: relative;
+    background: transparent;
+    box-shadow: 0 30px 60px rgba(26, 42, 68, 0.05); 
 }
 
-/* 2. Effet de zoom et léger décalage de l'image */
 .background_blanc_accueil .img_gauche img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 12px 0 0 12px;
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 4px;
+    transition: transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .background_blanc_accueil:hover .img_gauche img {
-    transform: scale(1.08) translateX(5px);
+    transform: scale(1.03); 
 }
 
 .background_blanc_accueil .text {
     flex: 1;
-    padding: 40px;
-    /* 3. Le texte réagit au mouvement */
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .background_blanc_accueil:hover .text {
-    transform: translateX(-5px);
+    transform: translateX(5px);
 }
 
 .text h3 {
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: clamp(26px, 2.8vw, 36px);
     color: #1A2A44;
-    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 30px;
     position: relative;
     display: inline-block;
 }
 
-/* 4. Soulignement doré dynamique sous le titre */
 .text h3::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -5px;
-    width: 0;
-    height: 2px;
+    bottom: -10px;
+    width: 50px;
+    height: 1px;
     background: #D4AF37;
-    transition: width 0.4s ease;
+    transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .background_blanc_accueil:hover h3::after {
-    width: 100%;
+    width: 90px;
 }
 
 .text p {
-    font-size: clamp(16px, 2vw, 18px);
-    color: #000000;
-    line-height: 1.6;
+    font-size: 16px;
+    color: #5A6578;
+    line-height: 1.85;
+    margin: 0;
+    max-width: 540px;
 }
 
-/* ============================================================
-   SECTION SERVICES - DESIGN HAUTE GAMME & ACCORDÉON
-   ============================================================ */
+@media (max-width: 992px) {
+    .first_section_accueil {
+        padding: 90px 0;
+    }
+
+    .background_blanc_accueil {
+        width: 90%;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .background_blanc_accueil .img_gauche {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+
+    .background_blanc_accueil .text {
+        width: 100%;
+        text-align: left;
+    }
+}
 
 .section_services {
-padding: 100px 0;
-    background-color: #F4F1E9;
-    
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    background-color: #1A2A44; 
+    overflow: hidden;
 }
 
 .services_contenu {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 90%;
-    max-width: 1350px;
-    background: #617088; /* Fond sombre pour le luxe */
-    margin: 0 auto;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    width: 100%;
+    margin: 0;
+    background: #617088;
+    box-shadow: none;
 }
 
 .services_liste {
-   padding: 70px;
-    color: #ffffff;
+    padding: 120px 8% 120px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .services_header_top {
-    margin-bottom: 40px;
-}
-
-.sur-titre {
-   color: #D4AF37;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 11px;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
+    margin-bottom: 60px;
 }
 
 .services_header_top h2 {
-    color: #ffffff !important;
-    text-align: left !important;
-    font-size: 28px !important;
+    color:#D4AF37;
+    font-size: clamp(30px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 10px;
 }
 
 .service_ligne {
     cursor: pointer;
-    padding: 25px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
-}
-
-
-.service_ligne.active::before {
-    height: 60%;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s ease;
 }
 
 .service_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .service_header h3 {
     margin: 0;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #ffffff;
+    transition: color 0.3s ease;
 }
 
 .icon-wrapper {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #D4AF37;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    position: relative;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
 }
 
 .plus-icon {
-    color: #D4AF37;
-    font-size: 16px;
+    position: relative;
+    width: 10px;
+    height: 10px;
 }
 
+.plus-icon::before,
+.plus-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #F1E6C5;
+    transition: transform 0.4s ease;
+}
+
+.plus-icon::before {
+    top: 4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+.plus-icon::after {
+    top: 0;
+    left: 4px;
+    width: 2px;
+    height: 100%;
+}
+
+.service_ligne:hover h3,
 .service_ligne.active h3 {
     color: #D4AF37;
+}
+
+.service_ligne:hover .icon-wrapper,
+.service_ligne.active .icon-wrapper {
+    border-color: #F1E6C5;
+}
+
+.service_ligne.active .plus-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+.service_ligne.active .plus-icon::before {
+    transform: rotate(180deg);
 }
 
 .description-detaillee {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.4s ease;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
 }
 
 .service_ligne.active .description-detaillee {
-    max-height: 150px;
+    max-height: 200px; 
     opacity: 1;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 .description-detaillee p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.6;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
     margin: 0;
 }
 
 .services_media {
     position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+.carte_media {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .services_media img {
@@ -288,6 +439,9 @@ padding: 100px 0;
     height: 100%;
     object-fit: cover;
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .legende_media {
@@ -295,69 +449,122 @@ padding: 100px 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(160deg, #f6f0df 0%, #fdf9f0 100%); /* Fond doré */
-    padding: 30px;
-    color: black;
-    font-size: 14px;
-    font-weight: 600;
+    background: #FDFBF7; 
+    padding: 50px 8%;
+    color: #2a2a2a;
+    border-top: 1px solid rgba(26, 42, 68, 0.08);
+    z-index: 2;
 }
 
-/* ============================================================
-   SECTION CTA
-   ============================================================ */
+.legende_media p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #5a5a5a;
+}
 
 .section_cta_accueil {
-    color: #ffffff;
-    text-align: center;
+    margin: 50px auto;
     width: 100%;
-    min-height: 420px;
-    margin: 70px 0;
-    padding: 70px 20px;
+    position: relative;
+    min-height: 520px;
+    padding: 140px 24px;
     display: flex;
     align-items: center;
-    flex-direction: column;
     justify-content: center;
-    background-color: #1A2A44;
+    box-sizing: border-box;
+    background-image: linear-gradient(rgba(11, 19, 32, 0.65), rgba(11, 19, 32, 0.85)), var(--bg-image);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cta_accueil_inner {
+    max-width: 850px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta_sur_titre {
+    color: #D4AF37;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .section_cta_accueil h2 {
     color: #ffffff;
-    margin: 0 0 18px;
-    font-size: clamp(32px, 4vw, 48px);
+    margin: 0 0 25px 0;
+    font-size: clamp(32px, 4.2vw, 50px);
     line-height: 1.2;
     font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
-/* RESPONSIVE */
+.section_cta_accueil p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(16px, 1.8vw, 19px);
+    line-height: 1.75;
+    margin: 0 0 50px 0;
+    max-width: 700px;
+}
+
+.cta_premium_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #D4AF37;
+    color: #ffffff; 
+    padding: 20px 52px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 0; 
+    border: 1px solid #D4AF37;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cta_premium_btn:hover {
+    background-color: transparent;
+    color: #D4AF37;
+    border-color: #D4AF37;
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .section_cta_accueil {
+        padding: 90px 20px;
+        min-height: 420px;
+    }
+    
+    .section_cta_accueil p {
+        margin-bottom: 40px;
+    }
+    
+    .cta_premium_btn {
+        padding: 18px 40px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .services_contenu {
         grid-template-columns: 1fr;
     }
     .services_media {
         padding: 0 20px 20px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .background_header_accueil {
-        padding: 120px 16px 90px;
-    }
-    .first_section_accueil {
-        padding: 60px 16px;
-    }
-    .background_blanc_accueil {
-        width: 100%;
-        flex-direction: column;
-    }
-    .background_blanc_accueil .img_gauche {
-        flex: 0 0 100%;
-    }
-    .background_blanc_accueil .img_gauche img {
-        border-radius: 12px 12px 0 0;
-    }
-    .services_liste {
-        padding: 40px 20px;
     }
 }

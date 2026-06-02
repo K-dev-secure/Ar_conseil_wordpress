@@ -1,16 +1,240 @@
-/**
- * CSS spécifique pour la page Actualité - AR CONSEIL
- * Ce fichier se charge UNIQUEMENT sur la page Actualité
- */
+/* ==========================================================================
+   PAGE ACTUALITÉS & BANNIÈRE ASSOMBRIE - AR CONSEIL
+   ========================================================================== */
 
-/*--------------------------------------------------------------
->>> TABLE DES MATIÈRES - PAGE ACTUALITÉ
-----------------------------------------------------------------
-1.0 En-tête de page
-2.0 Grille d'articles
-3.0 Cartes d'actualités
-4.0 Pagination
-5.0 Responsive
---------------------------------------------------------------*/
+/* Structure du header avec écritures blanches garanties */
+.background_header_actualite {
+    position: relative;
+    padding: 200px 20px 140px 20px;
+    min-height: 320px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
 
-/* Vos styles pour la page Actualité */
+.background_header_actualite h1 {
+    color: #ffffff !important;
+    text-align: center;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0 auto;
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- LE CONTENEUR PRINCIPAL --- */
+.actualites_container {
+    background-color: #FDFBF7; /* Fond beige crème très doux comme sur la photo */
+    padding: 80px 20px 120px 20px;
+}
+
+.actualites_grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 30px;
+}
+
+/* --- DESIGNS DES CARTES PREMIUM --- */
+.actu_card {
+    background-color: #ffffff;
+    border-radius: 14px; /* Coins arrondis fluides */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Transition lissée pour l'ensemble de la carte */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover Global de la carte */
+.actu_card:hover {
+    transform: translateY(-8px); /* Légèrement plus haut pour plus de légèreté */
+    box-shadow: 0 22px 45px rgba(26, 42, 68, 0.1); /* Ombre plus diffuse et immersive */
+}
+
+/* Bloc Image */
+.actu_card_image {
+    position: relative;
+    width: 100%;
+    padding-top: 60px;
+    height: 220px;
+    overflow: hidden;
+    background-color: #1A2A44; /* Évite un flash blanc pendant le chargement */
+}
+
+.actu_card_image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Transition ultra-douce pour le zoom de l'image */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+}
+
+/* Effet de zoom sur l'image au survol de la carte */
+.actu_card:hover .actu_card_image img {
+    transform: scale(1.05);
+    filter: brightness(1.03);
+}
+
+/* Bloc Contenu Interne */
+.actu_card_content {
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start; /* Aligne le badge à gauche */
+}
+
+/* Le Badge Catégorie Doré */
+.actu_card_badge {
+    background-color: #F7F4EB;
+    color: #C5A25D; /* Teinte dorée texturée haut de gamme */
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Titres des actualités */
+.actu_card_title {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 10px 0;
+    font-family: inherit;
+}
+
+.actu_card_title a {
+    color: #1A2A44; /* Ton bleu nuit officiel */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Le titre passe en doré quand on survole la carte OU le lien directement */
+.actu_card:hover .actu_card_title a,
+.actu_card_title a:hover {
+    color: #C5A25D;
+}
+
+/* Date de publication */
+.actu_card_date {
+    font-size: 14px;
+    color: #8A94A6;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Résumé de l'article */
+.actu_card_excerpt {
+    font-size: 15.5px;
+    color: #4A5568; /* Gris adouci pour la DA */
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+}
+
+/* Lien "Lire la suite" */
+.actu_card_link {
+    margin-top: auto;
+    color: #C5A25D;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+/* Animation de translation de la flèche au survol de la carte */
+.actu_card_link::after {
+    content: '→';
+    margin-left: 6px;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.actu_card:hover .actu_card_link::after {
+    transform: translateX(5px);
+}
+
+.actu_card_link:hover {
+    color: #1A2A44;
+}
+
+/* --- PAGINATION --- */
+.actu_pagination {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.actu_pagination ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+}
+
+.actu_pagination ul li a,
+.actu_pagination ul li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.actu_pagination ul li a {
+    color: #1A2A44;
+    background-color: #ffffff;
+    border: 1px solid rgba(26, 42, 68, 0.06);
+}
+
+.actu_pagination ul li span.current {
+    background-color: #1A2A44;
+    color: #ffffff;
+}
+
+.actu_pagination ul li a:hover {
+    background-color: #C5A25D;
+    border-color: #C5A25D;
+    color: #ffffff;
+}
+
+/* --- RESPONSIVE DE LA GRILLE --- */
+@media (max-width: 992px) {
+    .actualites_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .actualites_grid {
+        grid-template-columns: 1fr;
+    }
+    .background_header_actualite {
+        padding: 150px 20px 100px 20px;
+    }
+}

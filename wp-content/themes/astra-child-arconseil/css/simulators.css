@@ -1,230 +1,209 @@
 /**
- * SIMULATEURS FINANCIERS - PAGE SERVICES AR CONSEIL
- * Design : Éditorial de Luxe / Institutionnel Sombre
- * Responsive : Desktop & Mobile (Flex Column 100% mobile)
- * Pas de !important - Cascade naturelle respectée
+ * Styles pour les simulateurs financiers GFI et Assurance-Vie
+ * AR CONSEIL
  */
 
-/* --- 1. CONTENEUR PRINCIPAL DU SIMULATEUR --- */
-.simulator-title h2 {
-  font-size: 32px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 15px 0;
+.section_simulateurs_services {
+    background-color: #fdfbf7;
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 80px auto;
+    border-radius: 20px;
 }
+
+.partie_service_header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.partie_service_header h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: #1a2a44;
+    margin-bottom: 20px;
+}
+
+.divider_gold {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37 0%, rgba(212, 175, 55, 0) 100%);
+    margin: 0 auto;
+}
+
+.simulators_flex_layout {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .simulator-container {
-  background: linear-gradient(135deg, #0f1419 0%, #1a2a44 100%);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 8px;
-  padding: 50px 40px;
-  margin: 80px 0;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.2);
-  
-  /* État initial pour IntersectionObserver */
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(26, 42, 68, 0.1);
+    border: 1px solid rgba(26, 42, 68, 0.05);
 }
 
-/* Appliquer l'animation quand la classe .animate-in est ajoutée */
-.simulator-container.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- 2. TITRE ET ACCROCHE DU SIMULATEUR --- */
 .simulator-title {
-  font-size: 32px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 15px 0;
-  letter-spacing: -0.5px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a2a44;
+    margin-bottom: 12px;
 }
 
 .simulator-subtitle {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-  margin-bottom: 40px;
-  border-left: 3px solid #D4AF37;
-  padding-left: 15px;
+    font-size: 14px;
+    color: rgba(26, 42, 68, 0.7);
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
-/* --- 3. FORMULAIRE DE SAISIE (FLEX COLUMN RESPONSIVE) --- */
 .simulator-form {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
-/* Groupe de champ (label + input) */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
 .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group:last-child {
+    grid-column: 1 / -1;
 }
 
 .form-group label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #D4AF37;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a2a44;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .form-group input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 4px;
-  padding: 14px 16px;
-  font-size: 16px;
-  color: #ffffff;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+    padding: 12px 16px;
+    border: 1px solid rgba(26, 42, 68, 0.15);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #fdfbf7;
+    color: #1a2a44;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #D4AF37;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    background-color: white;
 }
 
-/* Conteneur à 2 colonnes pour desktop (versement initial, durée, etc.) */
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
-}
-
-/* --- 4. BOUTON CALCULER --- */
 .simulator-button {
-  background: linear-gradient(135deg, #D4AF37 0%, #e6c548 100%);
-  border: none;
-  border-radius: 4px;
-  padding: 16px 32px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #0f1419;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #d4af37 0%, #c99a2e 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
 }
 
 .simulator-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
+    background: linear-gradient(135deg, #e6c158 0%, #d4a63a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(212, 175, 55, 0.4);
 }
 
 .simulator-button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+    transform: translateY(0);
 }
 
-/* --- 5. BLOC RÉSULTAT --- */
 .simulator-result {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  border-radius: 4px;
-  padding: 30px;
-  margin-top: 40px;
-  text-align: center;
-  
-  /* Caché par défaut, affiché au JS */
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+    background-color: #fdfbf7;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #d4af37;
+    display: none;
 }
 
-/* Affiché au clic sur "Calculer" */
-.simulator-result.show {
-  max-height: 200px;
-  opacity: 1;
-  padding: 30px;
+.simulator-result.active {
+    display: block;
 }
 
 .result-label {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-  display: block;
+    font-size: 12px;
+    color: rgba(26, 42, 68, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .result-value {
-  font-size: 48px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #D4AF37, #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0;
-  line-height: 1.2;
+    font-size: 32px;
+    font-weight: 800;
+    color: #d4af37;
+    margin: 12px 0 8px;
 }
 
 .result-info {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 15px;
-  font-style: italic;
+    font-size: 13px;
+    color: rgba(26, 42, 68, 0.7);
+    line-height: 1.6;
 }
 
-/* --- 6. RESPONSIVE MOBILE (MAX-WIDTH: 1024px) --- */
-@media (max-width: 1024px) {
-  .simulator-container {
-    padding: 40px 24px;
-    margin: 60px 0;
-    margin-left: 0;
-    margin-right: 0;
-    border-radius: 6px;
-  }
+/* Responsive */
+@media (max-width: 768px) {
+    .section_simulateurs_services {
+        padding: 60px 20px;
+        margin: 60px auto;
+    }
+    
+    .simulators_flex_layout {
+        gap: 30px;
+    }
+    
+    .simulator-container {
+        max-width: 100%;
+        padding: 30px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .form-group:last-child {
+        grid-column: 1;
+    }
+}
 
-  .simulator-title {
-    font-size: 28px;
-    margin-bottom: 12px;
-  }
-
-  .simulator-subtitle {
-    font-size: 15px;
-    margin-bottom: 30px;
-    padding-left: 12px;
-    border-left-width: 2px;
-  }
-
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .simulator-button {
-    width: 100%;
-    padding: 14px 24px;
-    font-size: 15px;
-  }
-
-  .result-value {
-    font-size: 36px;
-  }
-
-  .simulator-result {
-    padding: 20px;
-  }
-
-  .simulator-result.show {
-    padding: 20px;
-  }
+@media (max-width: 600px) {
+    .section_simulateurs_services {
+        padding: 40px 16px;
+    }
+    
+    .simulator-container {
+        padding: 24px;
+    }
+    
+    .simulator-title {
+        font-size: 20px;
+    }
 }

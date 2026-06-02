@@ -31,53 +31,60 @@
         const filteredLogos = partnerLogos.filter((url) => url && !url.startsWith('COLLEZ_ICI_URL'));
 
         if (!filteredLogos.length) {
-            carousel.innerHTML = '<p class="partner-name">Ajoutez vos URLs de logos dans js/custom.js</p>';
+            carousel.innerHTML = '<p class="partner-fallback-text">Ajoutez vos URLs de logos dans js/custom.js</p>';
             return;
         }
 
-        let carouselHTML = '<div class="carousel-track">';
+        // Création du conteneur de la piste de défilement
+        const track = document.createElement('div');
+        track.className = 'carousel-track';
 
-        filteredLogos.forEach((logoSrc, index) => {
-            carouselHTML += `
-                <div class="partner-slide">
-                    <img src="${logoSrc}" alt="Partenaire ${index + 1}" class="partner-logo" loading="lazy">
-                </div>
-            `;
-        });
+        // Pour un défilement infini parfait sans saccade sur grand écran, 
+        // on duplique la série de logos 3 fois plutôt que 2.
+        const duplicationCount = 3; 
+        
+        for (let i = 0; i < duplicationCount; i++) {
+            filteredLogos.forEach((logoSrc) => {
+                // Extraction d'un nom propre par défaut basé sur le nom du fichier image
+                const fileName = logoSrc.substring(logoSrc.lastIndexOf('/') + 1);
+                let cleanName = fileName.split(/[-_\.]/)[0];
+                cleanName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
 
-        filteredLogos.forEach((logoSrc, index) => {
-            carouselHTML += `
-                <div class="partner-slide">
-                    <img src="${logoSrc}" alt="Partenaire ${index + 1}" class="partner-logo" loading="lazy">
-                </div>
-            `;
-        });
+                const slide = document.createElement('div');
+                slide.className = 'partner-slide';
 
-        carouselHTML += '</div>';
-        carousel.innerHTML = carouselHTML;
+                const img = document.createElement('img');
+                img.src = logoSrc;
+                img.alt = `Logo ${cleanName}`;
+                img.className = 'partner-logo';
+                img.setAttribute('loading', 'lazy');
 
-        const logos = carousel.querySelectorAll('.partner-logo');
-        logos.forEach((logo, index) => {
-            logo.addEventListener('error', function() {
-                this.style.display = 'none';
-                const partnerName = document.createElement('div');
-                partnerName.className = 'partner-name';
-                partnerName.textContent = `Partenaire ${(index % filteredLogos.length) + 1}`;
-                this.parentElement.appendChild(partnerName);
+                // Gestion premium des images cassées (Fallback)
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    const fallbackBadge = document.createElement('div');
+                    fallbackBadge.className = 'partner-name-fallback';
+                    fallbackBadge.textContent = cleanName;
+                    slide.appendChild(fallbackBadge);
+                });
+
+                slide.appendChild(img);
+                track.appendChild(slide);
             });
-        });
+        }
+
+        carousel.innerHTML = '';
+        carousel.appendChild(track);
     }
 
-    
     /**
      * Quand le document est prêt
      */
     $(document).ready(function() {
         
-        // Votre code JavaScript ici
         console.log('Thème AR CONSEIL chargé avec succès !');
         
-        // Exemple : Smooth scroll pour les ancres
+        // Smooth scroll pour les ancres
         $('a[href^="#"]').on('click', function(e) {
             var target = $(this.getAttribute('href'));
             if(target.length) {

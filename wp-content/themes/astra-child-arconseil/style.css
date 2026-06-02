@@ -1,330 +1,305 @@
 /*
 Theme Name:   Astra Child - AR CONSEIL
 Theme URI:    https://ar-conseil.fr
-Description:  Thème enfant personnalisé pour AR CONSEIL basé sur Astra
-Author:       AR CONSEIL
-Author URI:   https://ar-conseil.fr
 Template:     astra
-Version:      1.0.0
-License:      GNU General Public License v2 or later
-License URI:  http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain:  astra-child-arconseil
+Version:      1.0.2
 */
 
-/*--------------------------------------------------------------
->>> TABLE DES MATIÈRES:
-----------------------------------------------------------------
-1.0 Variables CSS personnalisées
-2.0 Styles généraux
-3.0 Header
-4.0 Navigation
-5.0 Contenu principal
-6.0 Footer
-7.0 Responsive
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-1.0 Variables CSS personnalisées
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-2.0 Styles généraux
---------------------------------------------------------------*/
-
-/* Reset des paddings Astra */
-.ast-container-fluid {
-    padding-left: 0px;
-    padding-right: 0px;
+:root {
+    --primary-color: #1A2A44;
+    --accent-color: #D4AF37;
+    --bg-premium-grege: #FDFBF7;
 }
 
-/* Couleur de fond globale */
-body {
-    background-color: #F9F9F7;
+/* FIX GLOBAL ABSOLU - Empêche le site de se mettre en ligne horizontalement */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    display: block !important;
 }
 
-/* Base responsive media behavior */
-img,
-svg,
-video,
-iframe {
-    max-width: 100%;
-}
-
-img,
-svg {
-    height: auto;
-}
-
-.site-content {
-    overflow-x: clip;
-}
-
-/* Force l'empilement vertical des sections */
-.ast-container,
-.site-content {
+#page {
     display: flex !important;
     flex-direction: column !important;
-}
-
-.ast-container > *,
-.site-content > * {
     width: 100% !important;
 }
 
-/* Ajoutez vos styles personnalisés ici */
-h2 { color : #1A2A44}
+.site-content {
+    display: block !important;
+    width: 100% !important;
+}
 
-/* ── Bouton uniforme global ── */
-button {
-    display: inline-block;
-    padding: 14px 32px;
-    background-color: #D4AF37;
+.ast-container, .ast-container-fluid {
+    display: block !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* ==========================================================================
+   STYLE DU FOOTER PREMIUM - AR CONSEIL
+   ========================================================================== */
+
+.site_premium_footer {
+    width: 100%;
+    background-color: #1A2A44; /* Assure la continuité de couleur si le fond tarde à charger */
     color: #ffffff;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.site_premium_footer .background_footer {
+    background-color: #1A2A44;
+    padding: 80px 24px 40px 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.site_premium_footer .footer_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* --- TITRES DES COLONNES --- */
+.site_premium_footer h4 {
+    color: #D4AF37;
     font-size: 16px;
     font-weight: 700;
-    letter-spacing: 0.3px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(26, 42, 68, 0.15);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover {
-    background-color: #bfa135;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(26, 42, 68, 0.22);
-}
-
-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(26, 42, 68, 0.18);
-}
-
-a button {
-    color: #ffffff;
-}
-
-/*--------------------------------------------------------------
-3.0 Header
---------------------------------------------------------------*/
-
-/* Styles du header personnalisés */
-
-
-/*--------------------------------------------------------------
-4.0 Navigation
---------------------------------------------------------------*/
-
-/* Styles de navigation personnalisés */
-
-
-/*--------------------------------------------------------------
-5.0 Contenu principal
---------------------------------------------------------------*/
-
-/* Styles du contenu personnalisés */
-
-
-/*--------------------------------------------------------------
-6.0 Footer
---------------------------------------------------------------*/
-
-/* Footer - structure background_footer / colonnes */
-footer .background_footer {
-    background: linear-gradient(135deg, #1A2A44 0%, #0D1522 100%);
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 56px 24px 52px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    font-family: inherit;
-}
-
-footer .background_footer li,
-footer .background_footer p {
-    color: #ffffff;
-    text-align: center;
-    margin: 0;
-    padding: 5px;
-    list-style: none;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.1px;
-}
-
-footer .background_footer ul {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 25px 0;
     padding: 0;
-    margin: 0;
 }
 
-footer .background_footer .colonne_second ul {
-    text-align: center;
+/* --- COLONNE 1 : LOGO & TAGLINE --- */
+.site_premium_footer .colonne_first {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-footer .background_footer h4 {
-    color: #D4AF37;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.2px;
-}
-
-footer .background_footer a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 1.55;
-}
-
-footer .background_footer a:hover {
-    color: #D4AF37;
-}
-
-footer .background_footer .btn_contact {
-    margin: 14px auto 0;
-    text-align: center;
-    display: block;
-    width: fit-content;
-    list-style: none;
-}
-
-footer .background_footer .btn_contact a {
-    text-decoration: none;
-}
-
-footer .background_footer .btn_contact button {
-    font-size: 15px;
-    padding: 10px 22px;
-}
-
-footer .background_footer .colonne_first,
-footer .background_footer .colonne_second,
-footer .background_footer .colonne_third,
-footer .background_footer .colonne_fourth {
-    flex: 1;
-    min-width: 220px;
-    padding: 20px;
-}
-
-footer .background_footer .colonne_first img {
-    width: 100px;
+.site_premium_footer .footer_logo_link img,
+.site_premium_footer .footer_logo_link .custom-logo {
+    max-width: 180px;
     height: auto;
     display: block;
-    margin: 0 auto 14px;
 }
 
-footer .background_footer .colonne_first p {
-    max-width: 280px;
-    margin: 8px auto 0;
-    font-weight: 500;
+.site_premium_footer .footer_tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 260px;
 }
 
-footer .background_footer .colonne_second li,
-footer .background_footer .colonne_fourth li {
-    padding: 7px 5px;
+/* --- COLONNE 2 : NAVIGATION --- */
+.site_premium_footer .colonne_second ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-footer .background_footer .colonne_third a {
-    font-weight: 500;
+.site_premium_footer .colonne_second ul li a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
 }
 
-footer .background_footer .colonne_third p {
+.site_premium_footer .colonne_second ul li a:hover {
+    color: #D4AF37;
+}
+
+/* Bouton Contact Spécifique dans la liste */
+.site_premium_footer .btn_contact_container {
+    margin-top: 8px;
+}
+
+.site_premium_footer .btn_contact_footer {
+    display: inline-block;
+    background-color: transparent;
+    color: #D4AF37 !important;
+    border: 1px solid #D4AF37;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.site_premium_footer .btn_contact_footer:hover {
+    background-color: #D4AF37;
+    color: #1A2A44 !important;
+}
+
+/* --- COLONNE 3 & 4 : INFORMATIONS DE CONTACT & DISPO --- */
+.site_premium_footer .contact_info_list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.site_premium_footer .contact_item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 12px;
+    margin: 0;
+    font-size: 14.5px;
 }
 
-footer .background_footer .colonne_third p img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    flex: 0 0 40px;
+.site_premium_footer .contact_item a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.3s ease;
 }
 
-.social_icons ul {
+.site_premium_footer .contact_item a:hover {
+    color: #D4AF37;
+}
+
+.site_premium_footer .footer_icon {
+    width: 18px;
+    height: 18px;
+    color: #D4AF37;
+    flex-shrink: 0;
+}
+
+.site_premium_footer .horaires_wrapper {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-.separation {
-    height: 1px;
-    background-color: #D4AF37;
-    margin: 24px auto;
-    width: 80%;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 25px;
 }
 
-.mentions_legales {
-    flex: 0 0 100%;
-    text-align: center;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 400;
+.site_premium_footer .horaires_text {
+    margin: 0;
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.5;
 }
 
-.mentions_legales :hover {
+.site_premium_footer .hours_highlight {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* --- RÉSEAUX SOCIAUX --- */
+.site_premium_footer .social_icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.site_premium_footer .social_icons ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0px; /* Aligné sur le design carré des boutons */
+    transition: all 0.3s ease;
+}
+
+.site_premium_footer .social_icons ul li a img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Force les icônes à être blanches de base */
+    transition: transform 0.3s ease;
+}
+
+.site_premium_footer .social_icons ul li a:hover {
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+}
+
+.site_premium_footer .social_icons ul li a:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) invert(0) sepia(1) saturate(5) hue-rotate(340deg); /* Transforme en bleu nuit au survol */
+}
+
+/* --- BAS DE FOOTER (COPYRIGHT & MENTIONS) --- */
+.site_premium_footer .separation {
+    height: 1px;
+    background: linear-gradient(to right, rgba(212, 175, 55, 0) 0%, rgba(212, 175, 55, 0.3) 50%, rgba(212, 175, 55, 0) 100%);
+    margin: 50px 0 30px 0;
+}
+
+.site_premium_footer .mentions_legales {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.site_premium_footer .copyright_text,
+.site_premium_footer .legal_links,
+.site_premium_footer .legal_links a {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    text-decoration: none;
+}
+
+.site_premium_footer .legal_links a {
+    transition: color 0.3s ease;
+}
+
+.site_premium_footer .legal_links a:hover {
     color: #D4AF37;
 }
-@media (max-width: 768px) {
-    footer .background_footer {
+
+/* --- RESPONSIVE TABLETTES & MOBILES --- */
+@media (max-width: 992px) {
+    .site_premium_footer .footer_container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .site_premium_footer .background_footer {
+        padding: 60px 20px 30px 20px;
+    }
+    
+    .site_premium_footer .footer_container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        text-align: center;
+    }
+    
+    .site_premium_footer .colonne_first,
+    .site_premium_footer .contact_item,
+    .site_premium_footer .horaires_wrapper {
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .site_premium_footer .social_icons ul {
+        justify-content: center;
+    }
+    
+    .site_premium_footer .mentions_legales {
         flex-direction: column;
-        gap: 0;
-        padding: 18px 14px;
-    }
-
-    footer .background_footer .colonne_first,
-    footer .background_footer .colonne_second,
-    footer .background_footer .colonne_third,
-    footer .background_footer .colonne_fourth {
         text-align: center;
-        min-width: 0;
-        width: 100%;
-        padding: 14px 6px;
+        gap: 10px;
     }
-
-    footer .background_footer h4,
-    footer .background_footer li,
-    footer .background_footer p {
-        text-align: center;
-    }
-
-    footer .background_footer h4 {
-        font-size: 20px;
-    }
-
-    footer .background_footer li,
-    footer .background_footer p,
-    footer .background_footer a {
-        font-size: 16px;
-        line-height: 1.55;
-    }
-
-    footer .background_footer .btn_contact {
-        width: fit-content;
-    }
-}
-
-
-
-/*--------------------------------------------------------------
-7.0 Responsive
---------------------------------------------------------------*/
-
-/* Tablette */
-@media screen and (max-width: 768px) {
-    
-}
-
-/* Mobile */
-@media screen and (max-width: 480px) {
-    
 }

@@ -1,105 +1,125 @@
+/* ==========================================================================
+   PAGE CONTACT - AR CONSEIL (VERSION FINALE ALIGNÉE À GAUCHE)
+   ========================================================================== */
+
 .background_header_contact {
     position: relative;
-    padding: 250px 0;
+    padding: 220px 0; /* Alignement sur la hauteur des autres pages */
     min-height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
+    display: flex;
+    align-items: center; /* Centrage vertical uniquement */
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.background_header_contact h1,
-.background_header_contact h2 {
-    margin: 50px;
-    color: #ffffff;
-    text-align: center;
+/* Conteneur interne : alignement du texte à gauche et calage propre */
+.header_contact_content {
     position: relative;
     z-index: 2;
+    max-width: 1200px; /* Aligné sur la grille générale du site */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px; /* Évite que le texte colle aux bords de l'écran */
+    text-align: left; /* TEXTE À GAUCHE */
 }
 
-.background_header_contact h1 {
-    font-size: 48px;
-    font-weight: bold;
+/* SPAN TAGLINE DORÉE (Même style exact que les autres pages) */
+.header_contact_content .header_tagline {
+    color: #D4AF37; 
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
 }
 
-.background_header_contact h2 {
-    font-size: 24px;
-    font-weight: normal;
+.header_contact_content h1 {
+    color: #ffffff;
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
 }
 
+.header_contact_content h2 {
+    color: #ffffff;
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 400;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin: 0;
+    max-width: 850px; /* Limite la largeur de lecture à gauche */
+}
+
+/* --- CONTACT CARDS --- */
 .second-section-btn {
-    background-color: #F9FAFB;
+    background-color: #FDFBF7; /* Grège premium */
     display: flex;
-    gap: 40px;
-    padding: 80px;
+    gap: 30px;
+    padding: 100px 20px;
     align-items: center;
     justify-content: center;
-    margin-bottom: 80px;
-}
-
-.second-section-btn a {
-    background-color: #283A77;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.second-section-btn a:hover {
-    background-color: #1A2A44;
 }
 
 .card_mail,
 .card_tel {
-    background-color: #283A77;
-    border: 2px solid #283A77;
-    border-radius: 8px;
-    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid rgba(26, 42, 68, 0.06);
+    border-radius: 12px;
+    padding: 40px 30px;
     flex: 1;
-    max-width: 300px;
+    max-width: 350px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 15px;
     text-decoration: none;
-    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(26, 42, 68, 0.03);
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .card_mail:hover,
 .card_tel:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(26, 42, 68, 0.15);
-    border-color: #D4AF37;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(26, 42, 68, 0.08);
+    border-color: rgba(212, 175, 55, 0.4);
 }
 
 .card_mail svg,
 .card_tel svg {
     flex-shrink: 0;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     fill: none;
-    stroke: #ffffff;
+    stroke: #1A2A44;
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: stroke 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .card_mail:hover svg,
 .card_tel:hover svg {
     stroke: #D4AF37;
+    transform: scale(1.05);
 }
 
 .card_mail p,
 .card_tel p {
-    color: #ffffff;
-    font-weight: 600;
+    color: #1A2A44;
+    font-weight: 700;
     margin: 0;
-    font-size: 16px;
-    transition: color 0.3s ease;
+    font-size: 18px;
+    letter-spacing: -0.2px;
+    transition: color 0.4s ease;
 }
 
 .card_mail:hover p,
@@ -107,89 +127,120 @@
     color: #D4AF37;
 }
 
+/* --- BUSINESS HOURS --- */
 .section_horaire {
-    padding: 60px 40px;
+    padding: 120px 20px;
+    background-color: #ffffff;
     text-align: center;
 }
 
 .section_horaire h2 {
-    color: #283A77;
-    font-size: 40px;
+    color: #1A2A44;
+    font-size: clamp(32px, 4vw, 44px);
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
 }
 
-.section_horaire div {
-    max-width: 760px;
+.section_horaire .horaire_wrapper_cards {
+    max-width: 900px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.horaire_semaine_un,
+.horaire_semaine_deux {
+    background-color: #FDFBF7;
+    border: 1px solid rgba(26, 42, 68, 0.04);
+    color: #1A2A44;
+    padding: 45px 30px;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(26, 42, 68, 0.01);
 }
 
-.horaire_semaine_un {
-    background: linear-gradient(145deg, #263142 0%, #1f2733 55%, #1a2230 100%);
-    color: white;
-    padding: 35px 20px;
-    border-radius: 8px;
-    width: 100%;
+.section_horaire p {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #5A6578;
 }
 
-.horaire_semaine_deux {
-    background: linear-gradient(145deg, #263142 0%, #1f2733 55%, #1a2230 100%);
-    color: white;
-    padding: 35px 20px;
-    border-radius: 8px;
-    width: 100%;
+.section_horaire p:last-child {
+    margin-bottom: 0;
 }
 
+.section_horaire .days_highlight {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #D4AF37;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.section_horaire .hours_highlight {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1A2A44;
+}
+
+.section_horaire .closed_day {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #a2aab5;
+    border-top: 1px dashed rgba(26, 42, 68, 0.1);
+    padding-top: 15px;
+    width: 60%;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 900px) {
     .second-section-btn {
         flex-direction: column;
         gap: 20px;
-        padding: 40px 20px;
-        margin-bottom: 50px;
+        padding: 60px 20px;
     }
 
     .card_mail,
     .card_tel {
         width: 100%;
-        max-width: 680px;
+        max-width: 500px;
+        padding: 35px 20px;
     }
 
+    .section_horaire .horaire_wrapper_cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 500px;
+    }
+    
+    .horaire_semaine_un,
+    .horaire_semaine_deux {
+        padding: 40px 20px;
+    }
 }
 
 @media (max-width: 768px) {
     .background_header_contact {
-        padding: 120px 16px 90px;
-        min-height: 220px;
+        padding: 140px 0 100px;
+        min-height: 250px;
     }
-
-    .background_header_contact h1,
-    .background_header_contact h2 {
-        margin: 16px 0;
-    }
-
-    .background_header_contact h1 {
-        font-size: clamp(30px, 8vw, 38px);
-    }
-
-    .background_header_contact h2 {
-        font-size: clamp(16px, 4.3vw, 20px);
+    
+    .header_contact_content {
+        padding: 0 20px;
     }
 
     .section_horaire {
-        padding: 50px 16px;
-    }
-
-    .section_horaire h2 {
-        font-size: clamp(30px, 8vw, 36px);
-    }
-
-    .horaire_semaine_un,
-    .horaire_semaine_deux {
-        padding: 24px 16px;
+        padding: 80px 20px;
     }
 }
-
-
