@@ -1,208 +1,10 @@
 /* ================================================================
    SCROLL ANIMATIONS - AR CONSEIL
-   Animations modernes et élégantes pour chaque page
    ================================================================ */
-
-/* --- BASE STATE FOR ALL ANIMATED ELEMENTS --- */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.animate-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.animate-fade-down {
-    opacity: 0;
-    transform: translateY(-40px);
-}
-
-.animate-fade-left {
-    opacity: 0;
-    transform: translateX(-50px);
-}
-
-.animate-fade-right {
-    opacity: 0;
-    transform: translateX(50px);
-}
-
-.animate-scale {
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-.animate-rotate {
-    opacity: 0;
-    transform: rotate(-5deg);
-}
-
-.animate-blur {
-    filter: blur(10px);
-    opacity: 0;
-}
-
-/* --- ANIMATED STATE (Applied after scroll) --- */
-.animate-on-scroll.animated,
-.animate-fade-up.animated,
-.animate-fade-down.animated,
-.animate-fade-left.animated,
-.animate-fade-right.animated,
-.animate-scale.animated,
-.animate-rotate.animated,
-.animate-blur.animated {
-    opacity: 1;
-    transform: translate(0) scale(1) rotate(0);
-    filter: blur(0);
-    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* --- STAGGER DELAY FOR LISTS & CARDS --- */
-.animate-fade-up.stagger-1 { transition-delay: 0.1s; }
-.animate-fade-up.stagger-2 { transition-delay: 0.2s; }
-.animate-fade-up.stagger-3 { transition-delay: 0.3s; }
-.animate-fade-up.stagger-4 { transition-delay: 0.4s; }
-.animate-fade-up.stagger-5 { transition-delay: 0.5s; }
-.animate-fade-up.stagger-6 { transition-delay: 0.6s; }
-
-/* --- PARALLAX EFFECT (Subtle) --- */
-.parallax-light {
-    perspective: 1000px;
-}
-
-/* --- COUNTER ANIMATION (Numbers) --- */
-.counter-number {
-    font-feature-settings: 'tnum';
-    font-variant-numeric: tabular-nums;
-}
-
-/* --- TEXT REVEAL ANIMATION --- */
-.text-reveal {
-    position: relative;
-    overflow: hidden;
-}
-
-.text-reveal-inner {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.text-reveal.animated .text-reveal-inner {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- BOUNCE ANIMATION --- */
-@keyframes bounce-in {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-bounce {
-    animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-/* --- SLIDE IN FROM LEFT/RIGHT --- */
-@keyframes slide-in-left {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slide-in-right {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.animate-slide-left {
-    animation: slide-in-left 0.7s ease-out;
-}
-
-.animate-slide-right {
-    animation: slide-in-right 0.7s ease-out;
-}
-
-/* --- GROWING LINE ANIMATION (for dividers/accents) --- */
-@keyframes grow-width {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
-.animate-line {
-    animation: grow-width 0.8s ease-out;
-}
-
-/* --- GLOW EFFECT (for buttons/highlights) --- */
-@keyframes glow-pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
-    }
-}
-
-.animate-glow {
-    animation: glow-pulse 2s infinite;
-}
-
-/* --- FADE IN TEXT CHARACTER BY CHARACTER --- */
-@keyframes char-appear {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.text-chars span {
-    display: inline-block;
-    animation: char-appear 0.6s ease-out forwards;
-}
 
 /* --- SMOOTH SCROLL BEHAVIOR --- */
 html {
     scroll-behavior: smooth;
-}
-
-/* --- ANIMATION TIMING FUNCTIONS --- */
-:root {
-    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-out-cubic: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* --- REDUCED MOTION ACCESSIBILITY --- */
@@ -215,69 +17,7 @@ html {
     }
 }
 
-/* --- PREMIUM SCROLL ANIMATIONS FOR SECTIONS --- */
-
-/* Fade in sections when scrolling past 50% of viewport */
-.section-fade {
-    opacity: 0;
-    transform: translateY(60px);
-}
-
-.section-fade.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 1s var(--ease-out-cubic);
-}
-
-/* Card flip animation */
-.card-flip {
-    opacity: 0;
-    transform: rotateY(90deg);
-    perspective: 1000px;
-}
-
-.card-flip.visible {
-    opacity: 1;
-    transform: rotateY(0deg);
-    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Zoom in animation */
-.zoom-in {
-    opacity: 0;
-    transform: scale(0.85);
-}
-
-.zoom-in.visible {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.8s var(--ease-out-cubic);
-}
-
-/* Expand height animation */
-.expand-height {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-}
-
-.expand-height.visible {
-    max-height: 500px;
-    opacity: 1;
-    transition: max-height 0.8s ease-out, opacity 0.8s ease-out;
-}
-
-/* Number counter animation */
-.counter {
-    font-weight: 600;
-    font-size: inherit;
-}
-
-/* ================================================================
-   SPECIFIC SECTION ANIMATIONS
-   ================================================================ */
-
-/* Hero sections */
+/* --- HERO SECTION FADE-IN ON PAGE LOAD --- */
 .background_header_accueil,
 .background_header_cabinet,
 .background_header_actualite,
@@ -298,7 +38,7 @@ html {
     }
 }
 
-/* Button animations */
+/* --- BUTTON HOVER TRANSITIONS --- */
 .btn_rdv,
 .btn_services,
 .btn_contact_footer,
@@ -312,24 +52,4 @@ html {
 .simulator-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* ================================================================
-   MOBILE OPTIMIZATIONS
-   ================================================================ */
-
-@media (max-width: 768px) {
-    .animate-on-scroll.animated,
-    .animate-fade-up.animated,
-    .animate-fade-down.animated,
-    .animate-fade-left.animated,
-    .animate-fade-right.animated {
-        transition-duration: 0.6s;
-    }
-
-    .text.animated,
-    .text_droite.animated,
-    .cabinet_editorial_content.animated {
-        transition-delay: 0s;
-    }
 }

@@ -79,7 +79,7 @@ $footer_links = array(
                     <li><a href="<?php echo esc_url( $footer_links['actualite'] ); ?>">Actualité</a></li>
                     <li class="btn_contact_container">
                         <a href="<?php echo esc_url( $footer_links['contact'] ); ?>" class="btn_contact_footer">Contact</a>
-                    </td>
+                    </li>
                 </ul>
             </div>
 

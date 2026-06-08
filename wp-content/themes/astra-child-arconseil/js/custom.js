@@ -81,19 +81,6 @@
      * Quand le document est prêt
      */
     $(document).ready(function() {
-        
-        console.log('Thème AR CONSEIL chargé avec succès !');
-        
-        // Smooth scroll pour les ancres
-        $('a[href^="#"]').on('click', function(e) {
-            var target = $(this.getAttribute('href'));
-            if(target.length) {
-                e.preventDefault();
-                $('html, body').stop().animate({
-                    scrollTop: target.offset().top - 100
-                }, 1000);
-            }
-        });
 
         initPartnersCarousel();
         
