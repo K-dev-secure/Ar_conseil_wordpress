@@ -20,6 +20,14 @@ function astra_child_arconseil_enqueue_styles() {
         CHILD_THEME_AR_CONSEIL_VERSION
     );
     
+    // 1.5️⃣ CSS Scroll Animations (global, toutes pages)
+    wp_enqueue_style(
+        'ar-conseil-scroll-animations',
+        get_stylesheet_directory_uri() . '/css/scroll-animations.css',
+        array('ar-conseil-global'),
+        CHILD_THEME_AR_CONSEIL_VERSION
+    );
+
     // 2️⃣ CSS spécifiques par page (Sécurisés par slug de page)
     if ( is_front_page() || is_page('accueil') ) {
         wp_enqueue_style(

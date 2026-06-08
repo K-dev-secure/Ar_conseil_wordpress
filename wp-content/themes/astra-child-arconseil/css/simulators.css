@@ -18,7 +18,7 @@
 
 .partie_service_header h2 {
     font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700;
+    font-weight: 600;
     color: #1a2a44;
     margin-bottom: 20px;
 }
@@ -135,40 +135,163 @@
     transform: translateY(0);
 }
 
-.simulator-result {
-    background-color: #fdfbf7;
-    padding: 20px;
-    border-radius: 12px;
-    border-left: 4px solid #d4af37;
+/* ---- Badge simulateur ---- */
+.simulator-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.12);
+    color: #d4af37;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+/* ---- Erreur inline ---- */
+.simulator-error {
     display: none;
+    background: #fff3f3;
+    color: #c0392b;
+    border-left: 3px solid #c0392b;
+    font-size: 13px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.simulator-error.visible {
+    display: block;
+}
+
+/* ---- Résultat ---- */
+.simulator-result {
+    display: none;
+    margin-top: 24px;
+    border-top: 1px solid rgba(26, 42, 68, 0.08);
+    padding-top: 24px;
 }
 
 .simulator-result.active {
     display: block;
+    animation: result-in 0.4s ease-out;
+}
+
+@keyframes result-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+    margin-bottom: 20px;
 }
 
 .result-label {
-    font-size: 12px;
-    color: rgba(26, 42, 68, 0.6);
+    display: block;
+    font-size: 11px;
+    color: rgba(26, 42, 68, 0.55);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.result-label strong {
+    color: #1a2a44;
 }
 
 .result-value {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 800;
     color: #d4af37;
-    margin: 12px 0 8px;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
 }
 
-.result-info {
+/* ---- Détail du calcul ---- */
+.result-breakdown {
+    background: #f9f7f2;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+}
+
+.bd-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
     font-size: 13px;
-    color: rgba(26, 42, 68, 0.7);
-    line-height: 1.6;
+    color: rgba(26, 42, 68, 0.75);
+    border-bottom: 1px solid rgba(26, 42, 68, 0.05);
 }
 
-/* Responsive */
+.bd-row:last-of-type {
+    border-bottom: none;
+}
+
+.bd-label {
+    flex: 1;
+    padding-right: 12px;
+    line-height: 1.4;
+}
+
+.bd-val {
+    font-weight: 600;
+    white-space: nowrap;
+    color: #1a2a44;
+}
+
+/* Variantes colorées */
+.bd-row.positive  .bd-val { color: #27ae60; }
+.bd-row.negative  .bd-val { color: #c0392b; }
+.bd-row.fiscal    .bd-val { color: #2980b9; }
+
+.bd-row.subtotal  { border-top: 1px solid rgba(26,42,68,0.1); margin-top: 4px; }
+.bd-row.subtotal  .bd-val { font-weight: 700; color: #1a2a44; }
+
+.bd-row.total     { border-top: 2px solid #d4af37; margin-top: 4px; padding-top: 10px; }
+.bd-row.total     .bd-label { font-weight: 700; color: #1a2a44; }
+.bd-row.total     .bd-val   { font-size: 15px; font-weight: 800; color: #d4af37; }
+
+.bd-divider {
+    height: 1px;
+    background: rgba(26, 42, 68, 0.1);
+    margin: 4px 0;
+}
+
+.bd-note {
+    font-size: 11.5px;
+    color: rgba(26, 42, 68, 0.6);
+    margin: 8px 0 2px;
+    padding: 6px 0 0;
+    line-height: 1.5;
+    border-top: 1px solid rgba(26, 42, 68, 0.06);
+}
+
+.bd-note.highlight {
+    color: #d4af37;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* ---- Disclaimer ---- */
+.result-disclaimer {
+    font-size: 11px;
+    color: rgba(26, 42, 68, 0.45);
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .result-value { font-size: 28px; }
+    .bd-row { font-size: 12px; }
+}
+
 @media (max-width: 768px) {
     .section_simulateurs_services {
         padding: 60px 20px;

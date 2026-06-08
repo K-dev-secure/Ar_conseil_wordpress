@@ -172,67 +172,81 @@ $header_bg = get_the_post_thumbnail_url() ?: 'https://images.unsplash.com/photo-
     <div class="simulators_flex_layout">
         <!-- Simulateur GFI -->
         <div class="simulator-container fade-left" id="simulator-gfi" data-animate>
+            <div class="simulator-badge">Fiscalité incluse</div>
             <h2 class="simulator-title">Simulateur GFI</h2>
-            <p class="simulator-subtitle">Calculez la valorisation de votre investissement en Groupement Forestier. Saisissez vos paramètres pour obtenir une projection.</p>
-            
+            <p class="simulator-subtitle">Calculez la valorisation de votre investissement forestier en intégrant la réduction d'impôt IR et l'exonération IFI.</p>
+
             <form class="simulator-form" id="gfi-form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="gfi-capital">Versement Initial (€)</label>
-                        <input type="number" id="gfi-capital" placeholder="Ex: 50000" min="0" step="1000">
+                        <input type="number" id="gfi-capital" placeholder="Ex : 50 000" min="1000" step="1000">
                     </div>
                     <div class="form-group">
                         <label for="gfi-duration">Durée (années)</label>
-                        <input type="number" id="gfi-duration" placeholder="Ex: 10" min="1" step="1">
+                        <input type="number" id="gfi-duration" placeholder="Min. 5 ans" min="1" max="50" step="1">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="gfi-rate">Rendement annuel estimé (%)</label>
-                    <input type="number" id="gfi-rate" placeholder="Ex: 3.5" min="0" step="0.1">
+                    <label for="gfi-rate">Rendement forestier annuel estimé (%)</label>
+                    <input type="number" id="gfi-rate" placeholder="Moyenne historique : 3 – 4 %" min="0" max="30" step="0.1">
                 </div>
+                <div class="simulator-error" id="gfi-error"></div>
                 <button type="button" class="simulator-button" id="gfi-button">Calculer la Projection</button>
             </form>
 
             <div class="simulator-result" id="gfi-result">
-                <span class="result-label">Capital estimé après</span>
-                <p class="result-value">—</p>
-                <p class="result-info"></p>
+                <div class="result-header">
+                    <span class="result-label">Capital valorisé après <strong class="result-duration">—</strong></span>
+                    <p class="result-value">—</p>
+                </div>
+                <div class="result-breakdown"></div>
+                <p class="result-disclaimer">Simulation indicative. Performances non garanties. Avantages fiscaux soumis à votre situation personnelle et au respect des conditions de détention.</p>
             </div>
         </div>
 
         <!-- Simulateur Assurance-Vie -->
         <div class="simulator-container fade-right" id="simulator-life-insurance" data-animate>
+            <div class="simulator-badge">Fiscalité incluse</div>
             <h2 class="simulator-title">Simulateur Assurance-Vie</h2>
-            <p class="simulator-subtitle">Projetez la croissance de votre contrat en combinant un capital initial et des versements mensuels réguliers.</p>
-            
+            <p class="simulator-subtitle">Projetez votre capital net en intégrant les frais de gestion et la fiscalité applicable (PFU 30 % / abattement après 8 ans).</p>
+
             <form class="simulator-form" id="life-insurance-form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="life-capital">Capital Initial (€)</label>
-                        <input type="number" id="life-capital" placeholder="Ex: 30000" min="0" step="1000">
+                        <input type="number" id="life-capital" placeholder="Ex : 30 000" min="0" step="1000">
                     </div>
                     <div class="form-group">
                         <label for="life-monthly">Versement Mensuel (€)</label>
-                        <input type="number" id="life-monthly" placeholder="Ex: 500" min="0" step="50">
+                        <input type="number" id="life-monthly" placeholder="Ex : 300" min="0" step="50">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="life-duration">Durée (années)</label>
-                        <input type="number" id="life-duration" placeholder="Ex: 20" min="1" step="1">
+                        <input type="number" id="life-duration" placeholder="Ex : 20" min="1" max="50" step="1">
                     </div>
                     <div class="form-group">
-                        <label for="life-rate">Rendement annuel estimé (%)</label>
-                        <input type="number" id="life-rate" placeholder="Ex: 2.5" min="0" step="0.1">
+                        <label for="life-rate">Rendement brut estimé (%)</label>
+                        <input type="number" id="life-rate" placeholder="Ex : 4" min="0" max="30" step="0.1">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="life-fees">Frais de gestion annuels (%)</label>
+                    <input type="number" id="life-fees" placeholder="Exemple : 0,75" value="0.75" min="0" max="5" step="0.05">
+                </div>
+                <div class="simulator-error" id="life-error"></div>
                 <button type="button" class="simulator-button" id="life-insurance-button">Calculer la Projection</button>
             </form>
 
             <div class="simulator-result" id="life-insurance-result">
-                <span class="result-label">Capital estimé après</span>
-                <p class="result-value">—</p>
-                <p class="result-info"></p>
+                <div class="result-header">
+                    <span class="result-label">Capital brut estimé après <strong class="result-duration">—</strong></span>
+                    <p class="result-value">—</p>
+                </div>
+                <div class="result-breakdown"></div>
+                <p class="result-disclaimer">Simulation indicative. Frais d'entrée non inclus. Fiscalité calculée au PFU 30 % (12,8 % IR + 17,2 % PS). Abattement 4 600 €/an (célibataire) / 9 200 €/an (couple) après 8 ans.</p>
             </div>
         </div>
     </div>

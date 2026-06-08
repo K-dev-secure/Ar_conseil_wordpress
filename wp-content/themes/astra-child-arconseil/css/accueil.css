@@ -61,7 +61,7 @@
 .background_header_accueil .header_accueil_content h1 {
     color: #ffffff;
     font-size: clamp(34px, 4.8vw, 56px);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
     text-transform: uppercase;
     margin: 0 0 20px 0;
@@ -168,7 +168,7 @@
     margin-bottom: 80px;
     font-size: clamp(34px, 4vw, 46px);
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.5px;
     color: #1A2A44;
 }
@@ -228,7 +228,7 @@
 .text h3 {
     font-size: clamp(26px, 2.8vw, 36px);
     color: #1A2A44;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.3px;
     margin-bottom: 30px;
     position: relative;
@@ -280,189 +280,241 @@
     }
 }
 
+
+/* ==========================================================================
+   SECTION SERVICES PREMIUM - INTEGRATION PHOTO PRO & STYLE FIGMA
+   ========================================================================== */
+
 .section_services {
     width: 100%;
-    max-width: 100%;
-    position: relative;
-    background-color: #1A2A44; 
-    overflow: hidden;
+    background-color: #FDFBF7; /* Fond beige/crème clair luxueux (Fini le bleu-gris) */
+    padding: 140px 0;
+    box-sizing: border-box;
 }
 
 .services_contenu {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 max(40px, 5%);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    margin: 0;
-    background: #617088;
+    grid-template-columns: 1.1fr 0.9fr; /* Split asymétrique ultra-moderne */
+    gap: 8%;
+    align-items: start;
+    background: transparent;
     box-shadow: none;
 }
 
-.services_liste {
-    padding: 120px 8% 120px 10%;
+/* --- BLOC GAUCHE : TEXTES ET ACCORDÉONS --- */
+.services_bloc_gauche {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 100%;
 }
 
 .services_header_top {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.services_header_top .sur-titre {
+    color: #5A6578;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
 }
 
 .services_header_top h2 {
-    color:#D4AF37;
-    font-size: clamp(30px, 3.5vw, 44px);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-top: 10px;
+    color: #1A2A44;
+    font-size: clamp(32px, 3.5vw, 44px);
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.services_liste {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .service_ligne {
     cursor: pointer;
+    border-bottom: 1px solid rgba(26, 42, 68, 0.12);
     padding: 30px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.4s ease;
+    transition: background-color 0.3s ease;
 }
 
-.service_header {
-    display: flex;
-    justify-content: space-between;
+.service_ligne:hover {
+    background-color: rgba(212, 175, 55, 0.015); /* Subtil reflet doré */
+}
+
+/* Grille interne de la ligne */
+.service_layout {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
     align-items: center;
-    gap: 20px;
-}
-
-.service_header h3 {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #ffffff;
-    transition: color 0.3s ease;
-}
-
-.icon-wrapper {
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.4s ease;
-    flex-shrink: 0;
-}
-
-.plus-icon {
-    position: relative;
-    width: 10px;
-    height: 10px;
-}
-
-.plus-icon::before,
-.plus-icon::after {
-    content: '';
-    position: absolute;
-    background-color: #F1E6C5;
-    transition: transform 0.4s ease;
-}
-
-.plus-icon::before {
-    top: 4px;
-    left: 0;
+    gap: 30px;
     width: 100%;
-    height: 2px;
 }
 
-.plus-icon::after {
-    top: 0;
-    left: 4px;
-    width: 2px;
-    height: 100%;
-}
-
-.service_ligne:hover h3,
-.service_ligne.active h3 {
+/* Numéro doré style Figma */
+.service_num {
     color: #D4AF37;
+    font-size: 18px;
+    font-weight: 500;
+    align-self: start;
+    margin-top: 4px;
 }
 
-.service_ligne:hover .icon-wrapper,
-.service_ligne.active .icon-wrapper {
-    border-color: #F1E6C5;
-}
-
-.service_ligne.active .plus-icon::after {
-    transform: rotate(90deg);
-    opacity: 0;
-}
-
-.service_ligne.active .plus-icon::before {
-    transform: rotate(180deg);
-}
-
-.description-detaillee {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-}
-
-.service_ligne.active .description-detaillee {
-    max-height: 200px; 
-    opacity: 1;
-    padding-top: 20px;
-}
-
-.description-detaillee p {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.7;
-    margin: 0;
-}
-
-.services_media {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 600px;
-}
-
-.carte_media {
-    width: 100%;
-    height: 100%;
+.service_corps {
     display: flex;
     flex-direction: column;
 }
 
-.services_media img {
+.service_corps h3 {
+    margin: 0;
+    font-size: clamp(20px, 2.2vw, 25px);
+    font-weight: 400;
+    color: #1A2A44;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Description masquée par défaut */
+.description-detaillee {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+}
+
+.description-detaillee p {
+    font-size: 15px;
+    color: #5A6578;
+    line-height: 1.7;
+    margin: 0;
+    padding-top: 15px;
+}
+
+/* États Actifs au clic */
+.service_ligne.active h3 {
+    color: #D4AF37;
+}
+
+.service_ligne.active .description-detaillee {
+    max-height: 160px;
+    opacity: 1;
+}
+
+/* Bouton action à droite */
+.service_action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #D4AF37;
+    font-weight: 500;
+}
+
+.txt_voir {
+    font-size: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Flèche fine en pur CSS */
+.arrow-wrapper {
+    position: relative;
+    width: 40px;
+    height: 1px;
+    background-color: #D4AF37;
+    transition: width 0.3s ease;
+}
+
+.arrow-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid #D4AF37;
+    border-top: 1.5px solid #D4AF37;
+    transform: rotate(45deg);
+}
+
+.service_ligne:hover .arrow-wrapper {
+    width: 50px;
+}
+
+.service_ligne:hover .txt_voir {
+    transform: translateX(-3px);
+}
+
+
+/* --- CÔTÉ DROIT : CARTE VISUELLE PREMIUM --- */
+.services_media {
+    position: relative;
+    width: 100%;
+    margin-top: 40px; /* Aligné élégamment avec le début de la liste */
+}
+
+.carte_media_wrapper {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 40px 80px rgba(26, 42, 68, 0.06); /* Ombre diffuse style Figma */
+    box-sizing: border-box;
+    transition: transform 0.4s ease;
+}
+
+.carte_media_wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.carte_media_image {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 2px;
+    position: relative;
+}
+
+.carte_media_image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.legende_media {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #FDFBF7; 
-    padding: 50px 8%;
-    color: #2a2a2a;
-    border-top: 1px solid rgba(26, 42, 68, 0.08);
-    z-index: 2;
+.carte_media_wrapper:hover .carte_media_image img {
+    transform: scale(1.04);
 }
 
-.legende_media p {
+/* Intégration fine de la légende sous la photo */
+.legende_media_premium {
+    padding-top: 30px;
+    border-top: 1px solid rgba(26, 42, 68, 0.06);
+    margin-top: 25px;
+}
+
+.legende_media_premium p {
     margin: 0;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #5A6578;
     font-weight: 400;
-    color: #5a5a5a;
 }
+
+
+/* ==========================================================================
+   BLOC CTA ET AUTRES (CONSERVÉS STRICTEMENT À L'IDENTIQUE)
+   ========================================================================== */
 
 .section_cta_accueil {
     margin: 50px auto;
@@ -505,7 +557,7 @@
     margin: 0 0 25px 0;
     font-size: clamp(32px, 4.2vw, 50px);
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.5px;
 }
 
@@ -560,11 +612,46 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+
+/* ==========================================================================
+   RESPONSIVE SERVICES ET ACCORDÉONS
+   ========================================================================== */
+
+@media screen and (max-width: 1100px) {
     .services_contenu {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* On passe sur une seule colonne propre */
+        gap: 60px;
     }
-    .services_media {
-        padding: 0 20px 20px;
+    .carte_media_image {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section_services {
+        padding: 90px 0;
+    }
+    
+    .service_layout {
+        grid-template-columns: 40px 1fr;
+        gap: 20px;
+    }
+    
+    .txt_voir {
+        display: none; /* Simplification mobile */
+    }
+    
+    .service_action {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 8px;
+    }
+    
+    .carte_media_image {
+        height: 300px;
+    }
+    
+    .service_ligne.active .description-detaillee {
+        max-height: 250px;
     }
 }

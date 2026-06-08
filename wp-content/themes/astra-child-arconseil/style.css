@@ -5,10 +5,24 @@ Template:     astra
 Version:      1.0.2
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@400;500;600&display=swap');
+
 :root {
     --primary-color: #1A2A44;
     --accent-color: #D4AF37;
     --bg-premium-grege: #FDFBF7;
+}
+
+/* --- Charte Typographique AR Conseil Patrimoine --- */
+body, p, span, a, label, input, button, select, textarea {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
 /* FIX GLOBAL ABSOLU - Empêche le site de se mettre en ligne horizontalement */

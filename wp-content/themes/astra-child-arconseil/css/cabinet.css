@@ -50,7 +50,7 @@
 .background_header_cabinet .header_cabinet_content h1 {
     color: #ffffff;
     font-size: clamp(42px, 5.8vw, 72px); /* Police augmentée pour correspondre au nouveau style fort */
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.1;
     text-transform: uppercase;
     margin: 0 0 25px 0;
@@ -264,7 +264,7 @@
 .section_unified_cards h2 {
     font-size: clamp(32px, 4vw, 48px);
     color: #1A2A44;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 15px;
 }
 
@@ -386,33 +386,24 @@
     text-align: center;
     margin-bottom: 80px;
     font-size: clamp(32px, 4vw, 46px);
-    font-weight: 700;
+    font-weight: 600;
     color: #1A2A44;
     letter-spacing: -0.5px;
 }
 
 .section_equipe .person {
-    display: grid;
-    grid-template-columns: 1fr 1px 1.2fr;
-    align-items: start;
-    gap: 0;
+    display: flex;
+    align-items: center;
+    gap: 60px;
     background: transparent;
 }
 
-.section_equipe .person::after {
-    content: '';
-    background-color: rgba(26, 42, 68, 0.15);
-    height: 100%;
-    min-height: 400px;
-    grid-column: 2;
-}
-
 .section_equipe .person-img {
+    flex: 1;
     border-radius: 4px;
     overflow: hidden;
     aspect-ratio: 3 / 4;
     box-shadow: 0 15px 35px rgba(26, 42, 68, 0.06);
-    grid-column: 1;
 }
 
 .section_equipe .person-img img {
@@ -424,7 +415,7 @@
 }
 
 .section_equipe .person-text {
-    grid-column: 3;
+    flex: 1.4;
     padding: 20px 0 20px 40px;
     background: transparent;
     border-left: 2px solid #D4AF37;
@@ -449,7 +440,7 @@
 .section_equipe .person-text h3:last-of-type {
     margin: 0 0 10px 0;
     font-size: clamp(28px, 3.5vw, 40px);
-    font-weight: 700;
+    font-weight: 600;
     color: #1A2A44;
     line-height: 1.1;
     letter-spacing: -0.5px;
@@ -482,7 +473,7 @@
 .section_carrousel h2 {
     font-size: clamp(32px, 4vw, 44px);
     color: #1A2A44;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 20px;
     letter-spacing: -0.5px;
     line-height: 1.2;

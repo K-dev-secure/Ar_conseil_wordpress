@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <main>
-    <div>
+    <div class="mentions_block">
         <h1>Mentions legales</h1>
         <p>Editeur du site</p>
         <p>AR Conseils</p>
@@ -38,7 +38,7 @@ get_header();
             des pratiques de ces sites tiers.</p>
     </div>
 
-    <div>
+    <div class="mentions_block">
         <h1>Politique de confidentialite</h1>
         <p>1. Introduction</p>
         <p>La presente politique de confidentialite a pour objectif d'informer les utilisateurs du site AR Conseils sur

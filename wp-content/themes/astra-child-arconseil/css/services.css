@@ -41,7 +41,7 @@
 .background_header_services h1 {
     color: #ffffff;
     font-size: clamp(42px, 6vw, 72px); /* Police considérablement agrandie pour un effet impactant */
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     margin: 0 0 25px 0;
     max-width: 900px;

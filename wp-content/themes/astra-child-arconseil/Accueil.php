@@ -7,14 +7,11 @@ get_header(); ?>
 
 
 <?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
-<!-- Animations premium AR CONSEIL -->
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/accueil-animations.css?v=1.0.0">
 <style>
 .background_header_accueil {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
 }
 </style>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/accueil-animations.js?v=1.0.0" defer></script>
 
 <div class="background_header_accueil">
     <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
@@ -49,45 +46,65 @@ get_header(); ?>
             <p><?php the_field('paragraphe_section_2_accueil'); ?></p>
         </div>
     </div>
-</div>>
+</div>
 
 <section class="section_services">
     <div class="services_contenu">
         
-        <div class="services_liste">
+        <div class="services_bloc_gauche">
             <div class="services_header_top">
                 <span class="sur-titre">Nos Expertises</span>
                 <h2>Une approche globale sur-mesure</h2>
             </div>
             
-            <?php 
-            $services = [
-                ['titre' => 'Ingénierie patrimoniale', 'desc' => 'Une organisation intelligente de vos biens pour protéger votre famille et réduire vos impôts durablement.'],
-                ['titre' => 'Ingénierie financière', 'desc' => 'Une sélection rigoureuse de placements sur-mesure pour faire grandir votre capital en toute sécurité.'],
-                ['titre' => 'Immobilier', 'desc' => 'Conseil en investissement locatif ou résidence principale pour bâtir un patrimoine tangible et rentable.'],
-                ['titre' => 'Succession', 'desc' => 'Anticiper la transmission de vos actifs pour garantir la paix familiale et optimiser les frais de vos héritiers.'],
-                ['titre' => "Dirigeant d'entreprise", 'desc' => 'Sécuriser votre activité professionnelle et optimiser le passage entre votre patrimoine pro et privé.'],
-            ];
+            <div class="services_liste">
+                <?php 
+                $services = [
+                    ['titre' => 'Ingénierie patrimoniale', 'desc' => 'Comprendre votre situation, étudier les meilleures stratégies et avancer à vos côtés pour une performance durable.'],
+                    ['titre' => 'Ingénierie financière', 'desc' => 'Sécuriser, diversifier, ajuster : gestion rigoureuse de votre capital et de votre confiance.'],
+                    ['titre' => 'Immobilier', 'desc' => 'Transformer votre épargne en patrimoine avec des investissements adaptés à votre profil.'],
+                    ['titre' => 'Succession', 'desc' => 'Anticiper la transmission par anticipation pour des solutions fiscales optimisées.'],
+                    ['titre' => "Dirigeant d'entreprise", 'desc' => 'Sécuriser votre activité professionnelle et optimiser le passage entre votre patrimoine pro et privé.'],
+                ];
 
-            foreach ($services as $s) : ?>
-            <div class="service_ligne" onclick="this.classList.toggle('active')">
-                <div class="service_header">
-                    <h3><?php echo $s['titre']; ?></h3>
-                    <div class="icon-wrapper">
-                        <span class="plus-icon"></span>
+                $i = 1;
+                foreach ($services as $s) : 
+                    $num = str_pad($i, 2, '0', STR_PAD_LEFT);
+                ?>
+                <div class="service_ligne" onclick="this.classList.toggle('active')">
+                    <div class="service_layout">
+                        
+                        <div class="service_num"><?php echo $num; ?></div>
+                        
+                        <div class="service_corps">
+                            <h3><?php echo $s['titre']; ?></h3>
+                            <div class="description-detaillee">
+                                <p><?php echo $s['desc']; ?></p>
+                            </div>
+                        </div>
+                        
+                        <div class="service_action">
+                            <span class="txt_voir">Voir</span>
+                            <div class="arrow-wrapper">
+                                <span class="arrow-line"></span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-                <div class="description-detaillee">
-                    <p><?php echo $s['desc']; ?></p>
-                </div>
+                <?php 
+                $i++;
+                endforeach; 
+                ?>
             </div>
-            <?php endforeach; ?>
         </div>
 
         <div class="services_media">
-            <div class="carte_media">
-                <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/serviceARconseils-1.png' ) ); ?>" alt="Conseil AR">
-                <div class="legende_media">
+            <div class="carte_media_wrapper">
+                <div class="carte_media_image">
+                    <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/serviceARconseils-1.png' ) ); ?>" alt="Conseil AR Patrimoine">
+                </div>
+                <div class="legende_media_premium">
                     <p>À chaque étape clé de votre parcours patrimonial, notre équipe vous accompagne avec écoute, expertise et vision stratégique afin de protéger, développer et transmettre votre patrimoine en toute sérénité.</p>
                 </div>
             </div>
@@ -125,8 +142,5 @@ get_header(); ?>
         endif; 
         ?>
 </div>
-
-
-
 
 <?php  get_footer(); ?>

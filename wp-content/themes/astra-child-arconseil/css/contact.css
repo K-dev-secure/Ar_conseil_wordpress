@@ -137,7 +137,7 @@
 .section_horaire h2 {
     color: #1A2A44;
     font-size: clamp(32px, 4vw, 44px);
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 50px;
     letter-spacing: -0.5px;
 }

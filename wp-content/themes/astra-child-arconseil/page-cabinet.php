@@ -62,7 +62,7 @@ $cta_bg    = home_url( '/wp-content/uploads/2026/02/header_contact-1.png' );
         </div>
         <div class="text_droite" data-animate="fade-right">
             <span class="cabinet_subtitle">Analyse & Accompagnement</span>
-            <h2 class="cabinet_title">Le Cabinet</h2>
+            <h2 class="cabinet_title">Notre histoire</h2>
             <div class="cabinet_editorial_content">
                 <?php the_field('cabinet_section_2_p'); ?>
             </div>
