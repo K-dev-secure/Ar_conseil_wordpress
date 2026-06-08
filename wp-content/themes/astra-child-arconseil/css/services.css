@@ -40,21 +40,21 @@
 
 .background_header_services h1 {
     color: #ffffff;
-    font-size: clamp(42px, 6vw, 72px); /* Police considérablement agrandie pour un effet impactant */
-    font-weight: 600;
+    font-size: clamp(46px, 7vw, 90px);
+    font-weight: 700;
     text-transform: uppercase;
-    margin: 0 0 25px 0;
-    max-width: 900px;
-    letter-spacing: 0.5px;
-    line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* Améliore le contraste sur l'image de fond */
+    margin: 0 0 28px 0;
+    max-width: 1000px;
+    letter-spacing: -0.5px;
+    line-height: 1.05;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .background_header_services h2 {
     color: rgba(255, 255, 255, 0.95);
-    font-size: clamp(17px, 2vw, 22px); /* Légèrement agrandi pour équilibrer avec le titre */
+    font-size: clamp(18px, 2.2vw, 26px);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0;
     max-width: 750px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -315,7 +315,7 @@
     }
 
     .background_header_services h1 {
-        font-size: 38px; /* Taille mobile adaptée */
+        font-size: 42px;
     }
 
     .premiere_section_service {

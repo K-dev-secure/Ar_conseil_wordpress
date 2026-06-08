@@ -49,22 +49,22 @@
 /* Titre Principal - AGRANDI POUR LE VISUEL (Sans !important) */
 .background_header_cabinet .header_cabinet_content h1 {
     color: #ffffff;
-    font-size: clamp(42px, 5.8vw, 72px); /* Police augmentée pour correspondre au nouveau style fort */
-    font-weight: 600;
-    line-height: 1.1;
+    font-size: clamp(46px, 7vw, 90px);
+    font-weight: 700;
+    line-height: 1.05;
     text-transform: uppercase;
-    margin: 0 0 25px 0;
-    max-width: 1000px; /* Élargi pour contenir harmonieusement la police plus grande */
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5); /* Amélioration du contraste sur le groupe */
+    margin: 0 0 28px 0;
+    max-width: 1000px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Sous-titre / Description - HARMONISÉ */
+/* Sous-titre / Description */
 .background_header_cabinet .header_cabinet_content h2 {
     color: rgba(255, 255, 255, 0.95);
-    font-size: clamp(16px, 1.8vw, 21px); /* Légèrement réadapté à la taille du titre */
+    font-size: clamp(18px, 2.2vw, 26px);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0;
     max-width: 780px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
@@ -77,7 +77,7 @@
     }
     
     .background_header_cabinet .header_cabinet_content h1 {
-        font-size: 36px; /* Adaptation fluide sur smartphone */
+        font-size: 40px;
     }
 
     .header_cabinet_content {

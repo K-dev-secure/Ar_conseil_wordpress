@@ -5,24 +5,34 @@ Template:     astra
 Version:      1.0.2
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@400;500;600&display=swap');
 
 :root {
     --primary-color: #1A2A44;
     --accent-color: #D4AF37;
     --bg-premium-grege: #FDFBF7;
+    --font-display: 'Playfair Display', serif;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Poppins', sans-serif;
 }
 
 /* --- Charte Typographique AR Conseil Patrimoine --- */
 body, p, span, a, label, input, button, select, textarea {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-sans);
     font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 0.5px;
+    font-family: var(--font-serif);
+    letter-spacing: 0.3px;
     font-weight: 600;
+}
+
+/* H1 → Playfair Display : impact maximal pour les titres principaux */
+h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 /* FIX GLOBAL ABSOLU - Empêche le site de se mettre en ligne horizontalement */
