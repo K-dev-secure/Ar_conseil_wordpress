@@ -27,8 +27,8 @@ get_header(); ?>
         <h2><?php the_field('sous_titre_header'); ?></h2>
         
         <div class="header_buttons">
-            <a href="#" class="btn_rdv">Prendre rendez-vous</a>
-            <a href="#" class="btn_services">Nos services</a>
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ?: home_url( '/contact/' ) ); ?>" class="btn_rdv">Prendre rendez-vous</a>
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'services' ) ) ?: home_url( '/services/' ) ); ?>" class="btn_services">Nos services</a>
         </div>
     </div>
 </div>
