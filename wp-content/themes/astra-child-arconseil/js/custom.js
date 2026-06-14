@@ -77,13 +77,37 @@
         carousel.appendChild(track);
     }
 
+    function initHeaderVideo() {
+        const video = document.querySelector('.video_banniere_accueil');
+        if (!video) return;
+
+        // Si l'utilisateur préfère les animations réduites, on pause la vidéo
+        // mais on la laisse visible (le premier frame sert d'image fixe)
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) {
+            video.removeAttribute('autoplay');
+            video.pause();
+            return;
+        }
+
+        // Tentative de lecture avec gestion de l'erreur navigateur
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function() {
+                // Autoplay bloqué par le navigateur : on laisse la photo de fond visible
+                video.style.display = 'none';
+            });
+        }
+    }
+
     /**
      * Quand le document est prêt
      */
     $(document).ready(function() {
 
         initPartnersCarousel();
-        
+        initHeaderVideo();
+
     });
     
 })(jQuery);

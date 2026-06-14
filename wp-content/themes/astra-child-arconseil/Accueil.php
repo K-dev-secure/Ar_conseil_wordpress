@@ -14,10 +14,10 @@ get_header(); ?>
 </style>
 
 <div class="background_header_accueil">
-    <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
+   <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
         poster="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" aria-hidden="true">
         <source
-            src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/02/456879_River_Tiber_Palace_Of_Justice_3840x2160.mp4' ) ); ?>"
+            src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/04/video-optimisee.mp4' ) ); ?>"
             type="video/mp4">
     </video>
     

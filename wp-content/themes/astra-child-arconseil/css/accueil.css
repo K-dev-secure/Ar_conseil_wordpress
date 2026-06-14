@@ -152,7 +152,8 @@
 
 @media (prefers-reduced-motion: reduce) {
     .video_banniere_accueil {
-        display: none;
+        /* La vidéo reste visible mais sans lecture auto (contrôlé via JS) */
+        animation: none;
     }
 }
 
