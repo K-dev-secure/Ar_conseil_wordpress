@@ -680,7 +680,23 @@
 }
 
 @media (max-width: 768px) {
-    .background_header_cabinet { padding: 160px 16px 100px; }
+    .background_header_cabinet {
+        padding: 120px 0 80px;
+    }
+
+    .header_cabinet_content {
+        margin-left: 0;
+        padding: 0 24px;
+    }
+
+    .background_header_cabinet .header_cabinet_content h1 {
+        font-size: 36px;
+    }
+
+    .background_header_cabinet .header_cabinet_content h2 {
+        font-size: 15px;
+    }
+
     .section_chiffres_cles { margin-top: -30px; padding: 40px 20px; width: 90%; }
     .section_chiffres_cles .chiffre_card_box { flex: 0 0 45%; }
     

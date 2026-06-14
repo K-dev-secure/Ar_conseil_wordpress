@@ -6,16 +6,19 @@
 get_header(); ?>
 
 
-<?php $header_bg = get_the_post_thumbnail_url() ?: home_url( '/wp-content/uploads/2026/02/header_contact-1.png' ); ?>
+<?php $poster_url = get_the_post_thumbnail_url() ?: ''; ?>
+<?php if ( $poster_url ) : ?>
 <style>
 .background_header_accueil {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $header_bg ); ?>);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<?php echo esc_url( $poster_url ); ?>);
 }
 </style>
+<?php endif; ?>
 
 <div class="background_header_accueil">
-   <video class="video_banniere_accueil" autoplay muted loop playsinline preload="metadata"
-        poster="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" aria-hidden="true">
+    <video class="video_banniere_accueil" autoplay muted loop playsinline preload="auto"
+        <?php if ( $poster_url ) : ?>poster="<?php echo esc_url( $poster_url ); ?>"<?php endif; ?>
+        aria-hidden="true">
         <source
             src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/04/video-optimisee.mp4' ) ); ?>"
             type="video/mp4">
@@ -28,7 +31,7 @@ get_header(); ?>
         
         <div class="header_buttons">
             <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ?: home_url( '/contact/' ) ); ?>" class="btn_rdv">Prendre rendez-vous</a>
-            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'services' ) ) ?: home_url( '/services/' ) ); ?>" class="btn_services">Nos services</a>
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'nos-services' ) ) ?: home_url( '/nos-services/' ) ); ?>" class="btn_services">Nos services</a>
         </div>
     </div>
 </div>

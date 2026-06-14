@@ -13,7 +13,7 @@
     box-sizing: border-box;
     
     /* Sécurités anti-répétition pour l'image poster en arrière-plan */
-    background-color: #111111; 
+    background-color: #0b1320;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; /* Interdit la répétition de l'image sur les grands écrans */
@@ -128,21 +128,32 @@
 /* --- RESPONSIVE --- */
 @media screen and (max-width: 768px) {
     .background_header_accueil {
-        padding: 160px 0 80px 0;
-        align-items: center; 
+        padding: 120px 0 60px 0;
+        align-items: flex-end;
+        min-height: 520px;
     }
-    
+
     .header_accueil_content {
         margin-left: 0;
         padding: 0 24px;
     }
-    
+
+    .background_header_accueil .header_accueil_content h1 {
+        font-size: 36px;
+        margin-bottom: 16px;
+    }
+
+    .background_header_accueil .header_accueil_content h2 {
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
     .header_buttons {
         width: 100%;
         flex-direction: column;
         gap: 12px;
     }
-    
+
     .btn_rdv, .btn_services {
         text-align: center;
         width: 100%;

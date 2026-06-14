@@ -231,11 +231,27 @@
     }
 }
 
+@media (max-width: 768px) {
+    .background_header_actualite {
+        padding: 130px 20px 80px 20px;
+        min-height: 280px;
+    }
+
+    .background_header_actualite h1 {
+        font-size: 38px !important;
+    }
+}
+
 @media (max-width: 650px) {
     .actualites_grid {
         grid-template-columns: 1fr;
     }
+
     .background_header_actualite {
-        padding: 150px 20px 100px 20px;
+        padding: 110px 20px 70px 20px;
+    }
+
+    .background_header_actualite h1 {
+        font-size: 34px !important;
     }
 }

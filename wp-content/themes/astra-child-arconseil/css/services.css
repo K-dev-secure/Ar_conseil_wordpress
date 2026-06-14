@@ -298,11 +298,23 @@
 
 @media screen and (max-width: 768px) {
     .background_header_services {
-        padding: 180px 0;
+        padding: 120px 0;
+        min-height: 300px;
+    }
+
+    .header_services_content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 24px;
     }
 
     .background_header_services h1 {
-        font-size: 42px;
+        font-size: 36px;
+        margin-bottom: 16px;
+    }
+
+    .background_header_services h2 {
+        font-size: 15px;
     }
 
     .premiere_section_service {

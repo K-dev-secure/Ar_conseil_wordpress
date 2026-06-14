@@ -233,12 +233,22 @@
 
 @media (max-width: 768px) {
     .background_header_contact {
-        padding: 140px 0 100px;
+        padding: 120px 0 80px;
         min-height: 250px;
     }
-    
+
     .header_contact_content {
-        padding: 0 20px;
+        padding: 0 24px;
+    }
+
+    .header_contact_content h1 {
+        font-size: 36px;
+        margin-bottom: 16px;
+    }
+
+    .header_contact_content h2 {
+        font-size: 15px;
+        line-height: 1.55;
     }
 
     .section_horaire {
