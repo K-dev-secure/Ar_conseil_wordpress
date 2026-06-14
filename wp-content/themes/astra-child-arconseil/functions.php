@@ -1,7 +1,7 @@
 <?php
 /**
  * Thème Enfant Astra - AR CONSEIL
- * * @package Astra Child AR CONSEIL
+ * @package Astra Child AR CONSEIL
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,9 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'CHILD_THEME_AR_CONSEIL_VERSION', '1.0.3' );
 
+// 1️⃣ CHARGEMENT DES STYLES CSS
 function astra_child_arconseil_enqueue_styles() {
     
-    // 1️⃣ CSS global (toujours chargé)
+    // CSS global (toujours chargé)
     wp_enqueue_style( 
         'ar-conseil-global',
         get_stylesheet_directory_uri() . '/style.css',
@@ -20,7 +21,7 @@ function astra_child_arconseil_enqueue_styles() {
         CHILD_THEME_AR_CONSEIL_VERSION
     );
     
-    // 1.5️⃣ CSS Scroll Animations (global, toutes pages)
+    // CSS Scroll Animations (global, toutes pages)
     wp_enqueue_style(
         'ar-conseil-scroll-animations',
         get_stylesheet_directory_uri() . '/css/scroll-animations.css',
@@ -28,7 +29,7 @@ function astra_child_arconseil_enqueue_styles() {
         CHILD_THEME_AR_CONSEIL_VERSION
     );
 
-    // 2️⃣ CSS spécifiques par page (Sécurisés par slug de page)
+    // CSS spécifiques par page
     if ( is_front_page() || is_page('accueil') ) {
         wp_enqueue_style(
             'ar-conseil-accueil',
@@ -80,8 +81,14 @@ function astra_child_arconseil_enqueue_styles() {
             CHILD_THEME_AR_CONSEIL_VERSION
         );
     }
-    
-    // 3️⃣ GSAP Library + ScrollTrigger Plugin
+}
+add_action( 'wp_enqueue_scripts', 'astra_child_arconseil_enqueue_styles', 15 );
+
+
+// 2️⃣ CHARGEMENT DES SCRIPTS JAVASCRIPT (Séparé pour éviter les bugs en ligne)
+function astra_child_arconseil_enqueue_scripts() {
+
+    // GSAP Library + ScrollTrigger Plugin
     wp_enqueue_script(
         'gsap-core',
         'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
@@ -130,7 +137,8 @@ function astra_child_arconseil_enqueue_styles() {
         'siteUrl' => esc_url( home_url() ),
     ) );
 }
-add_action( 'wp_enqueue_scripts', 'astra_child_arconseil_enqueue_styles', 15 );
+add_action( 'wp_enqueue_scripts', 'astra_child_arconseil_enqueue_scripts', 20 ); // Priorité 20 pour charger après le CSS
+
 
 // Enregistrement des supports thèmes et menus
 add_theme_support( 'post-thumbnails' );
