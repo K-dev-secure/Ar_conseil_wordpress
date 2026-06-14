@@ -7,14 +7,14 @@
 (function() {
     'use strict';
 
-    // Ensure GSAP & ScrollTrigger are available
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-        console.warn('GSAP or ScrollTrigger not loaded');
-        return;
-    }
+    function initAnimations() {
 
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+            console.warn('[AR Conseil] GSAP ou ScrollTrigger non disponible');
+            return;
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
 
     // ============================================
     // 1. FADE UP Animation - CSS Classes & Data Attributes
@@ -437,5 +437,15 @@
             }
         });
     });
+
+    } // fin initAnimations
+
+    // Lance les animations dès que le DOM est prêt,
+    // peu importe si le script est chargé en defer/async ou en footer normal
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAnimations);
+    } else {
+        initAnimations();
+    }
 
 })();
