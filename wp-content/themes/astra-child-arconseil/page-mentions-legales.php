@@ -94,7 +94,7 @@ get_header();
         <p><strong>Date de création :</strong> 12 décembre 2022</p>
         <p><strong>Adresse du siège social :</strong> 19 rue de Bonnel, 69003 Lyon, France</p>
         <p><strong>Téléphone :</strong> <a href="tel:+33609709721">06 09 70 97 21</a></p>
-        <p><strong>Email :</strong> <a href="mailto:contact@arconseil.fr">contact@arconseil.fr</a></p>
+        <p><strong>Email :</strong> <a href="mailto:Contact@arconseils-patrimoine.com">Contact@arconseils-patrimoine.com</a></p>
         <p><strong>Directeurs de la publication :</strong> Carl ABENA &amp; Romaric N'GOUMA</p>
 
         <h2>Hébergement</h2>
@@ -127,7 +127,7 @@ get_header();
         <p><strong>AR Conseils</strong> — SAS au capital social variable<br>
         SIRET : 922 146 709 00014<br>
         19 rue de Bonnel, 69003 Lyon, France<br>
-        Email : <a href="mailto:contact@arconseil.fr">contact@arconseil.fr</a><br>
+        Email : <a href="mailto:Contact@arconseils-patrimoine.com">Contact@arconseils-patrimoine.com</a><br>
         Représentée par Carl ABENA et Romaric N'GOUMA, en qualité de dirigeants</p>
 
         <h3>3. Données collectées</h3>
@@ -170,7 +170,7 @@ get_header();
             <li>Droit à la limitation du traitement</li>
             <li>Droit à la portabilité des données</li>
         </ul>
-        <p>Pour exercer ces droits, écrivez à : <a href="mailto:contact@arconseil.fr">contact@arconseil.fr</a></p>
+        <p>Pour exercer ces droits, écrivez à : <a href="mailto:Contact@arconseils-patrimoine.com">Contact@arconseils-patrimoine.com</a></p>
         <p>En cas de réponse insatisfaisante, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).</p>
 
         <h3>8. Sécurité</h3>
