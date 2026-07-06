@@ -3,6 +3,7 @@
 chmod 755 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil
 chmod 755 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js
 chmod 755 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/css
+chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js/.htaccess
 chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js/custom.js
 chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js/premium-animations.js
 chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js/simulators.js
