@@ -85,10 +85,12 @@ function astra_child_arconseil_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'astra_child_arconseil_enqueue_styles', 15 );
 
 
-// 2️⃣ CHARGEMENT DES SCRIPTS JAVASCRIPT (Séparé pour éviter les bugs en ligne)
+// 2️⃣ CHARGEMENT DES SCRIPTS JAVASCRIPT
+// Les scripts locaux sont injectés inline (PHP lit les fichiers côté serveur,
+// aucune requête HTTP séparée → contourne définitivement les 403 IONOS).
 function astra_child_arconseil_enqueue_scripts() {
 
-    // GSAP Library + ScrollTrigger Plugin
+    // GSAP + ScrollTrigger via CDN (non affecté par les restrictions IONOS)
     wp_enqueue_script(
         'gsap-core',
         'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
@@ -96,50 +98,41 @@ function astra_child_arconseil_enqueue_scripts() {
         '3.12.5',
         true
     );
-    
     wp_enqueue_script(
         'gsap-scroll-trigger',
         'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
-        array('gsap-core'),
+        array( 'gsap-core' ),
         '3.12.5',
         true
     );
-    
+
     $js_dir = get_stylesheet_directory() . '/js/';
 
-    // Fichiers JavaScript Premium Animations (dépend de GSAP)
-    wp_enqueue_script(
-        'ar-conseil-premium-animations',
-        get_stylesheet_directory_uri() . '/js/premium-animations.js',
-        array('gsap-scroll-trigger'),
-        file_exists( $js_dir . 'premium-animations.js' ) ? filemtime( $js_dir . 'premium-animations.js' ) : CHILD_THEME_AR_CONSEIL_VERSION,
-        true
-    );
-
-    wp_enqueue_script(
-        'ar-conseil-script',
-        get_stylesheet_directory_uri() . '/js/custom.js',
-        array( 'jquery' ),
-        file_exists( $js_dir . 'custom.js' ) ? filemtime( $js_dir . 'custom.js' ) : CHILD_THEME_AR_CONSEIL_VERSION,
-        true
-    );
-
-    // Simulators JavaScript (only on services page)
-    if ( is_page('services') || is_page('nos-services') ) {
-        wp_enqueue_script(
-            'ar-conseil-simulators',
-            get_stylesheet_directory_uri() . '/js/simulators.js',
-            array('jquery'),
-            file_exists( $js_dir . 'simulators.js' ) ? filemtime( $js_dir . 'simulators.js' ) : CHILD_THEME_AR_CONSEIL_VERSION,
-            true
-        );
+    // premium-animations.js — injecté inline juste après ScrollTrigger
+    if ( file_exists( $js_dir . 'premium-animations.js' ) ) {
+        wp_add_inline_script( 'gsap-scroll-trigger', file_get_contents( $js_dir . 'premium-animations.js' ) );
     }
 
-    wp_localize_script( 'ar-conseil-script', 'arConseil', array(
+    // custom.js — handle sans src (dépend de jquery), injecté inline en footer
+    wp_register_script( 'ar-conseil-inline', false, array( 'jquery' ), null, true );
+    wp_enqueue_script( 'ar-conseil-inline' );
+    wp_localize_script( 'ar-conseil-inline', 'arConseil', array(
         'siteUrl' => esc_url( home_url() ),
     ) );
+    if ( file_exists( $js_dir . 'custom.js' ) ) {
+        wp_add_inline_script( 'ar-conseil-inline', file_get_contents( $js_dir . 'custom.js' ) );
+    }
+
+    // simulators.js — page services uniquement, injecté inline
+    if ( is_page( 'services' ) || is_page( 'nos-services' ) ) {
+        wp_register_script( 'ar-conseil-simulators-inline', false, array( 'jquery' ), null, true );
+        wp_enqueue_script( 'ar-conseil-simulators-inline' );
+        if ( file_exists( $js_dir . 'simulators.js' ) ) {
+            wp_add_inline_script( 'ar-conseil-simulators-inline', file_get_contents( $js_dir . 'simulators.js' ) );
+        }
+    }
 }
-add_action( 'wp_enqueue_scripts', 'astra_child_arconseil_enqueue_scripts', 20 ); // Priorité 20 pour charger après le CSS
+add_action( 'wp_enqueue_scripts', 'astra_child_arconseil_enqueue_scripts', 20 );
 
 
 // Enregistrement des supports thèmes et menus
