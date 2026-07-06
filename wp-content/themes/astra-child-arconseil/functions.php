@@ -105,30 +105,32 @@ function astra_child_arconseil_enqueue_scripts() {
         true
     );
     
+    $js_dir = get_stylesheet_directory() . '/js/';
+
     // Fichiers JavaScript Premium Animations (dépend de GSAP)
     wp_enqueue_script(
         'ar-conseil-premium-animations',
         get_stylesheet_directory_uri() . '/js/premium-animations.js',
         array('gsap-scroll-trigger'),
-        CHILD_THEME_AR_CONSEIL_VERSION,
+        file_exists( $js_dir . 'premium-animations.js' ) ? filemtime( $js_dir . 'premium-animations.js' ) : CHILD_THEME_AR_CONSEIL_VERSION,
         true
     );
-    
+
     wp_enqueue_script(
         'ar-conseil-script',
         get_stylesheet_directory_uri() . '/js/custom.js',
         array( 'jquery' ),
-        CHILD_THEME_AR_CONSEIL_VERSION,
+        file_exists( $js_dir . 'custom.js' ) ? filemtime( $js_dir . 'custom.js' ) : CHILD_THEME_AR_CONSEIL_VERSION,
         true
     );
-    
+
     // Simulators JavaScript (only on services page)
     if ( is_page('services') || is_page('nos-services') ) {
         wp_enqueue_script(
             'ar-conseil-simulators',
             get_stylesheet_directory_uri() . '/js/simulators.js',
             array('jquery'),
-            CHILD_THEME_AR_CONSEIL_VERSION,
+            file_exists( $js_dir . 'simulators.js' ) ? filemtime( $js_dir . 'simulators.js' ) : CHILD_THEME_AR_CONSEIL_VERSION,
             true
         );
     }

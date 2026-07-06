@@ -1,5 +1,12 @@
+-- À coller dans le terminal SSH IONOS après chaque SCP --
+
+chmod 755 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil
 chmod 755 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js
+chmod 755 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/css
 chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js/custom.js
 chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js/premium-animations.js
 chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/js/simulators.js
+chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/css/*.css
+chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/*.php
+chmod 644 ./clickandbuilds/ArConseil/wp-content/themes/astra-child-arconseil/style.css
 exit
